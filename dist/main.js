@@ -1,1 +1,1 @@
-console.log("Hello!");
+(()=>{"use strict";class e{constructor(e){this.name=e}}const t=document.getElementById("newProject"),n=function(){const t=document.querySelector(".project_name").value;return new e(t)}();t.addEventListener("click",(e=>{e.preventDefault(),document.querySelector(".projectName").innerText=n.name}))})();
