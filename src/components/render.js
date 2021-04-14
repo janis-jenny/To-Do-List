@@ -1,16 +1,28 @@
 import Project from './project';
-import Todos from './todos'
+import ToDos from './todos';
 
 function createProject() {
-  const nameInput = document.querySelector('.project_name').value;
-  const newProject = new Project(nameInput);
-  return newProject;
+  
+  const newProject = document.querySelector('#new-project');
+  newProject.addEventListener('click', (e) => {
+    e.preventDefault();
+    const nameInput = document.querySelector('.project_name').value;
+    console.log(nameInput);
+    const newProject = new Project(nameInput);
+    newProject.renderProject()
+  });
 }
 
 function displayTodo() {
-  const todoContainer = document.getElementById('todos-form-container');
-  const todo = new Todos('Title1', 'Description1', 'date1');
-  return todo;
+  const btnTodo = document.querySelector('#todo-btn');
+  btnTodo.addEventListener('click', (e) => {
+    e.preventDefault();
+    const newTitle = document.querySelector('#title').value;
+    const newDescp = document.querySelector('#description').value;
+    const newTodo = new ToDos(newTitle, newDescp);
+    newTodo.renderTodo();
+  })
+  
 }
 
 export { createProject, displayTodo } ;
