@@ -1,4 +1,4 @@
-import storage from "./common";
+import storage from './common';
 
 
 export default class Todos {
@@ -6,15 +6,15 @@ export default class Todos {
     this.title = title;
     this.description = description;
     this.date = date;
-    this.todoList = document.getElementById('todos-list-container')
+    this.todoList = document.getElementById('todo-list-container');
   }
 
   appendTodo() {
     const todoCard = `<div class="todoCard">
                       <div>${this.title}</div>
                       <div>${this.description}</div>
-                      </div>`
-    this.todoList.insertAdjacentHTML('afterbegin', todoCard)
+                      </div>`;
+    this.todoList.insertAdjacentHTML('afterbegin', todoCard);
   }
 
   /* addTodo() {
@@ -26,5 +26,3 @@ export default class Todos {
     this.appendTodo();
   }
 }
-   
-  

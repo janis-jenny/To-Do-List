@@ -1,4 +1,4 @@
-import { createProject, displayTodo }  from './components/render';
+import { createProject, displayTodo } from './components/render';
 
 createProject();
 displayTodo();

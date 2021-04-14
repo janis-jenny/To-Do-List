@@ -2,14 +2,13 @@ import Project from './project';
 import ToDos from './todos';
 
 function createProject() {
-  
   const newProject = document.querySelector('#new-project');
   newProject.addEventListener('click', (e) => {
     e.preventDefault();
     const nameInput = document.querySelector('.project_name').value;
     console.log(nameInput);
     const newProject = new Project(nameInput);
-    newProject.renderProject()
+    newProject.renderProject();
   });
 }
 
@@ -21,8 +20,7 @@ function displayTodo() {
     const newDescp = document.querySelector('#description').value;
     const newTodo = new ToDos(newTitle, newDescp);
     newTodo.renderTodo();
-  })
-  
+  });
 }
 
-export { createProject, displayTodo } ;
+export { createProject, displayTodo };

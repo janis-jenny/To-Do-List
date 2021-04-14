@@ -1,4 +1,4 @@
-import storage from './common'
+import storage from './common';
 
 export default class Project {
   constructor(name) {
@@ -8,7 +8,7 @@ export default class Project {
 
   addProjectName() {
     this.container.innerText = this.name;
-   /*  storage.push({
+    /*  storage.push({
       name: this.name,
       tasks: []
     }) */
@@ -19,4 +19,3 @@ export default class Project {
     // console.log(storage)
   }
 }
-
