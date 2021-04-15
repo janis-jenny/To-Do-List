@@ -6,7 +6,6 @@ function createProject() {
   newProject.addEventListener('click', (e) => {
     e.preventDefault();
     const nameInput = document.querySelector('.project_name').value;
-    console.log(nameInput);
     const newProject = new Project(nameInput);
     newProject.renderProject();
   });

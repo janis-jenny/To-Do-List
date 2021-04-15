@@ -1,2 +1,2 @@
-/*  const storage = [];
- export default storage; */
+const storage = [];
+export default storage;

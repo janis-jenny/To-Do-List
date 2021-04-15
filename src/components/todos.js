@@ -1,6 +1,5 @@
 import storage from './common';
 
-
 export default class Todos {
   constructor(title, description, date) {
     this.title = title;
@@ -17,11 +16,12 @@ export default class Todos {
     this.todoList.insertAdjacentHTML('afterbegin', todoCard);
   }
 
-  /* addTodo() {
+  addTodo() {
     storage[0].tasks.push({
       title: this.title, description: this.description
     })
-  } */
+  }
+
   renderTodo() {
     this.appendTodo();
   }
