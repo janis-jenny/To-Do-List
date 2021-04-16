@@ -2,9 +2,9 @@ import storage from './common';
 // import createProject from './render';
 
 export default class Project {
-  constructor(name) {
+  constructor(name, id) {
     this.name = name;
-    // this.task = []; 
+    this.tasks = []; 
     this.container = document.querySelector('.render-name');
   }
 
@@ -19,8 +19,8 @@ export default class Project {
   renderProject() {
     this.container.textContent = '';
     this.addProject();
-    const contPj = storage.map(item => `<h2>${item.name}</h2>`);
-    this.container.insertAdjacentHTML('afterbegin', contPj);
+    const contPj = storage.map(item => `<h2 id="${item.id}>${item.name}</h2>`);
+    this.container.insertAdjacentHTML('', contPj);
     console.log(storage);
   }
 }

@@ -4,7 +4,7 @@ export default class Todos {
   constructor(title, description, date) {
     this.title = title;
     this.description = description;
-    this.date = date;
+    // this.date = date;
     this.todoList = document.getElementById('todo-list-container');
   }
 
@@ -23,6 +23,14 @@ export default class Todos {
   }
 
   renderTodo() {
-    this.appendTodo();
+    this.todoList.textContent = '';
+    this.addTodo();
+    const contTodo = storage[0].tasks.map(item => `<div class="todoCard">
+                                                   <div>${this.title}</div>
+                                                   <div>${this.description}</div>
+                                                   </div>`);
+    this.todoList.insertAdjacentHTML('afterbegin', contTodo);
+    console.log(storage);
+
   }
 }
