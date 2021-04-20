@@ -19,19 +19,19 @@ export default class Todos {
 
   addTodo(project, task) {
     project.tasks.push(task)
+    console.log(project)
   }
 
   renderTodo() {
     this.todoList.textContent = '';
     this.appendTodo();
     this.addTodo();
-   
-    const contTodo = storage[0].tasks.map(item => `<div class="todoCard">
+    const contTodo = project.tasks.map(item => `<div class="todoCard">
                                                    <div>${item.title}</div>
                                                    <div>${item.description}</div>
                                                    </div>`);
     this.todoList.insertAdjacentHTML('afterbegin', contTodo);
-    console.log(storage.tasks);
+    console.log(project.tasks);
   }
 
 }

@@ -14,9 +14,12 @@ function createProject() {
 }
 
 function createTodo() {
-  const btnTodo = document.querySelector('.todo-btn');
+  const btnTodo = document.querySelectorAll('.todo-btn');
   btnTodo.forEach(btn => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectIndex = e.target.dataset.id;
+      const project = storage[projectIndex]
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
       const newTodo = new Todos(newTitle, newDescp);

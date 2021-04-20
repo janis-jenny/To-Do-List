@@ -17,7 +17,7 @@ export default class Project {
     this.container.textContent = '';
     this.addProject();
     const contPj = storage.map(item => `<h2>${item.name}</h2>
-                                        <button class=".todo-btn" data-id=${storage.indexOf(item)}>Add Task</button>`);
+                                        <button class="todo-btn" data-id=${storage.indexOf(item)}>Add Task</button>`);
     this.container.insertAdjacentHTML('afterbegin', contPj);
     console.log(storage);
   }
