@@ -4,12 +4,13 @@ export default class Project {
   constructor(name) {
     this.name = name; 
     this.container = document.querySelector('.render-name');
+    this.tasks = [];
   }
 
   addProject() {
     storage.push({
       name: this.name,
-      tasks: [],
+      tasks: this.tasks,
     })
   }
 

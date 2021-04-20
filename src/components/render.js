@@ -23,28 +23,12 @@ function createTodo() {
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
       const newTodo = new Todos(newTitle, newDescp);
+      console.log('hereee');
+      console.log(newTodo);
       newTodo.addTodo(project, {title: newTitle, description: newDescp });
-      newTodo.renderTodo();
+      newTodo.renderTodo(project);
     })
   })
 }
 
-  /* btnTodo.forEach(btn => {
-    btn.addEventListener('click', function() {                                          
-      this.querySelector("#todos-form").classList.toggle("show"); 
-    }) */
-   /*  addIndexProject() {
-      const addTaskButtons = document.querySelectorAll('.todo-btn');
-      addTaskButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const projectIndex = e.target.dataset.id;
-          const project = storage[projectIndex]
-          addTodo(project, { title: this.title, description: this.description })
-        })
-      })
-    } */
-
 export { createProject, createTodo };
-
-/*  */
-
