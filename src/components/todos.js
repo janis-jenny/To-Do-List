@@ -14,16 +14,13 @@ export default class Todos {
 
   renderTodo(project) {
     this.todoList.textContent = '';
-    const contTodo = project.tasks.map(item => `<div class="todoCard">
-                                                   <div>${item.title}</div>
-                                                   <div>${item.description}</div>
-                                                   </div>`);
+    const contTodo = project.tasks.map(item => `<ul class="todoCard">
+                                                <li>${item.title}</li>
+                                                <li>${item.description}</li>
+                                                <li><button class="todo-delete">Delete</button></li>
+                                                </ul>`);
     this.todoList.insertAdjacentHTML('afterbegin', contTodo);
   
   }
 
 }
-
-    /* storage[0].tasks.push({
-      title: this.title, description: this.description
-    }) */
