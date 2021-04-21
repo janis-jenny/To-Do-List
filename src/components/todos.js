@@ -18,6 +18,7 @@ export default class Todos {
                                                 <li>${item.title}</li>
                                                 <li>${item.description}</li>
                                                 <li><button class="todo-delete">Delete</button></li>
+                                                <li><button class="todo-edit">Edit</button></li>
                                                 </ul>`);
     this.todoList.insertAdjacentHTML('afterbegin', contTodo);
   
