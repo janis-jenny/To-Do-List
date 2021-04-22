@@ -32,5 +32,8 @@
     "webpack": "^5.32.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "uniqid": "^5.3.0"
   }
 }

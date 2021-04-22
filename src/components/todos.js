@@ -8,12 +8,13 @@ export default class Todos {
   }
 
   addTodo(project, task) {
-    project.tasks.push(task),
+    project.tasks.push(task);
     console.log(project)
   }
 
   renderTodo(project) {
     this.todoList.textContent = '';
+    this.addTodo();
     const contTodo = project.tasks.map(item => `<ul class="todoCard">
                                                 <li>${item.title}</li>
                                                 <li>${item.description}</li>
