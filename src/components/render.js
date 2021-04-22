@@ -1,6 +1,7 @@
 import Project from './project';
 import Todos from './todos';
-import storage from './common';
+import { storage, populateSelect } from './common';
+
 
 function createProject() {
   const newProject = document.querySelector('#new-project');
@@ -9,15 +10,17 @@ function createProject() {
     const nameInput = document.querySelector('.project_name').value;
     const newProject = new Project(nameInput);
     newProject.renderProject();
+    populateSelect();
     createTodo();
   });
 }
 
 function createTodo() {
-  const btnTodo = document.querySelectorAll('.todo-btn');
+  const btnTodo = document.querySelectorAll('.create-button');
   btnTodo.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      const addDataId = storage.indexOf(item)
       const projectIndex = e.target.dataset.id;
       const project = storage[projectIndex]
       const newTitle = document.querySelector('#title').value;

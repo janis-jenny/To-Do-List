@@ -10,22 +10,24 @@
 <body>
   <div class="content">
     <main>
-      <div id="todo-list-container">
-        <h2>TODO'S PROJECT</h2>
-        <div class="render-name">
-        </div>
-        <div class="todos" id="todos-all-container">
-         
+      <div class="projects-container " id="projects-container">
+        <h2 class="projects-title">PROJECTS</h2>
+        <div class="d-flex flex-column render-projects" id="projects">
         </div>
       </div>
-      <button type="button" class="add-task-btn" id="add-todo-btn"><ion-icon name="add-outline"></ion-icon></button>
+      <h2>TODO'S PROJECT</h2>  
+      <div id="todo-list-container">
+      </div>
+      <!-- <div class="todos" id="todos-all-container">
+      </div> -->
+      <button type="button" class="add-task-btn" id="add-todo-btn">Add Todo</button>
       
     </main>
-    <div class="project-form-container d-none" id="project-form-container">
+    <div class="project-form-container " id="project-form-container">
       <form action="/project" class="project-form" id="project-form">
         <h4>Add a new project</h4>
         <div class="project-input-container">
-          <input type="text" placeholder="Project name" class="project_name">
+          <input type="text" placeholder="Put a name for the project" class="project_name">
         </div>
         <div>
           <button type="button" id="new-project">Add Project</button>
@@ -69,8 +71,8 @@
           </select>
         </div>
         <div class="form-section">
-          <button type="button" id="create-button">Create</button>
-          <button type="button" id="cancel-button">Cancel</button>
+          <button type="button" class="create-button">Create</button>
+          <button type="button" class="cancel-button">Cancel</button>
         </div>
       </form>
     </div>
