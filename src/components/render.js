@@ -21,15 +21,19 @@ function createTodo() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectId = getValue();
+      populateSelect();
       const projectIndex = storage.findIndex(
-        (project) => project.id = +projectId
-      );
-      const project = storage[projectIndex]
+        (item) => item.id === projectId);
+      const project = storage[projectIndex];
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
       const newTodo = new Todos(newTitle, newDescp);
       console.log('hereee');
+      console.log(storage);
+      console.log(projectId);
       console.log(newTodo);
+      console.log(project);
+      console.log(projectIndex);
       newTodo.addTodo(project, { title: newTitle, description: newDescp });
       newTodo.renderTodo(project);
     })

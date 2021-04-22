@@ -10,6 +10,7 @@ export default class Todos {
   addTodo(project, task) {
     project.tasks.push(task);
     console.log(project)
+    console.log(tasks)
   }
 
   renderTodo(project) {
