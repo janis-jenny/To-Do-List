@@ -21,7 +21,7 @@ function createTodo() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectId = getValue();
-      populateSelect();
+
       const projectIndex = storage.findIndex(
         (item) => item.id === projectId);
       const project = storage[projectIndex];
