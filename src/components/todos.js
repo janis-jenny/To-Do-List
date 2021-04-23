@@ -1,3 +1,4 @@
+import { storage, setLocalStorage, getLocalStorage } from './common';
 
 export default class Todos {
   constructor(title, description, date) {
@@ -9,6 +10,7 @@ export default class Todos {
 
   addTodo(project, task) {
     project.tasks.push(task);
+    setLocalStorage();
   }
 
   renderTodo(project) {
@@ -21,5 +23,6 @@ export default class Todos {
                                                 </ul>`);
     this.todoList.insertAdjacentHTML('afterbegin', contTodo);
     console.log(project)
+
   }
 }

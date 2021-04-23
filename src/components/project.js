@@ -1,4 +1,4 @@
-import { storage } from './common';
+import { storage, setLocalStorage } from './common';
 var uniqid = require('uniqid');
 
 export default class Project {
@@ -14,6 +14,7 @@ export default class Project {
       name: this.name,
       tasks: this.tasks,
     })
+    setLocalStorage();
   }
 
   renderProject() {
@@ -23,6 +24,6 @@ export default class Project {
                                        `);
     this.container.insertAdjacentHTML('afterbegin', contPj);
     console.log(storage);
+    
   }
 }
-// <button class="todo-btn">Create Task</button> 

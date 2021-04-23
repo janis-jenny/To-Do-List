@@ -11,6 +11,7 @@ function createProject() {
     const newProject = new Project(nameInput);
     newProject.renderProject();
     populateSelect();
+
   });
 }
 
@@ -28,6 +29,7 @@ function createTodo() {
       const newTodo = new Todos(newTitle, newDescp);
       newTodo.addTodo(project, { title: newTitle, description: newDescp });
       newTodo.renderTodo(project);
+      
     })
   })
 }
