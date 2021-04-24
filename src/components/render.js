@@ -1,6 +1,6 @@
 import Project from './project';
 import Todos from './todos';
-import { storage, populateSelect, getValue } from './common';
+import { storage, populateSelect, getValue, getLocalStorage } from './common';
 
 
 function createProject() {
@@ -33,5 +33,6 @@ function createTodo() {
     })
   })
 }
+
 
 export { createProject, createTodo };

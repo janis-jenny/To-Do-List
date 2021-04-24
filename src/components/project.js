@@ -1,4 +1,4 @@
-import { storage, setLocalStorage } from './common';
+import { storage, setLocalStorage, getLocalStorage } from './common';
 var uniqid = require('uniqid');
 
 export default class Project {
@@ -20,10 +20,12 @@ export default class Project {
   renderProject() {
     this.container.textContent = '';
     this.addProject();
-    const contPj = storage.map(item => `<h2>${item.name}</h2>
+    const projects = getLocalStorage();
+    console.log(projects);
+    const contPj = projects.map(item => `<h2>${item.name}</h2>
                                        `);
     this.container.insertAdjacentHTML('afterbegin', contPj);
-    console.log(storage);
+    console.log(projects);
     
   }
 }
