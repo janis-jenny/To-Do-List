@@ -1,4 +1,4 @@
-import { storage, setLocalStorage, getLocalStorage } from './common';
+import { setLocalStorage } from './common';
 
 export default class Todos {
   constructor(title, description, date) {

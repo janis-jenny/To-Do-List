@@ -1,1 +1,140 @@
-(()=>{var t={104:t=>{var e="undefined"!=typeof process&&process.pid?process.pid.toString(36):"";function n(){var t=Date.now(),e=n.last||t;return n.last=t>e?t:e+1}t.exports=t.exports.default=function(t,o){return(t||"")+""+e+n().toString(36)+(o||"")},t.exports.process=function(t,o){return(t||"")+e+n().toString(36)+(o||"")},t.exports.time=function(t,e){return(t||"")+n().toString(36)+(e||"")}}},e={};function n(o){var r=e[o];if(void 0!==r)return r.exports;var i=e[o]={exports:{}};return t[o](i,i.exports,n),i.exports}(()=>{"use strict";var t=[],e=document.querySelector("select"),o=function(){window.localStorage.setItem("todos",JSON.stringify(t))};function r(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}var i=n(104),a=function(){function e(t){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),this.name=t,this.container=document.querySelector(".render-projects"),this.tasks=[]}var n,a;return n=e,(a=[{key:"addProject",value:function(){t.push({id:i(),name:this.name,tasks:this.tasks}),o()}},{key:"renderProject",value:function(){this.container.textContent="",this.addProject();var e,n=void((e=JSON.parse(window.localStorage.getItem("todos")))&&e.forEach((function(e){t.push(e)})));console.log(n);var o=n.map((function(t){return"<h2>".concat(t.name,"</h2>\n                                       ")}));this.container.insertAdjacentHTML("afterbegin",o),console.log(n)}}])&&r(n.prototype,a),e}();function c(t,e){for(var n=0;n<e.length;n++){var o=e[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}var s=function(){function t(e,n,o){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.title=e,this.description=n,this.date=o,this.todoList=document.getElementById("todo-list-container")}var e,n;return e=t,(n=[{key:"addTodo",value:function(t,e){t.tasks.push(e),o()}},{key:"renderTodo",value:function(t){this.todoList.textContent="";var e=t.tasks.map((function(t){return'<ul class="todoCard">\n                                                <li>'.concat(t.title,"</li>\n                                                <li>").concat(t.description,'</li>\n                                                <li><button class="todo-delete">Delete</button></li>\n                                                <li><button class="todo-edit">Edit</button></li>\n                                                </ul>')}));this.todoList.insertAdjacentHTML("afterbegin",e),console.log(t)}}])&&c(e.prototype,n),t}();document.querySelector("#new-project").addEventListener("click",(function(n){n.preventDefault();var o=document.querySelector(".project_name").value;new a(o).renderProject(),e.textContent="",t.map((function(t){var n="<option value=".concat(t.id,">").concat(t.name,"</option>");e.insertAdjacentHTML("afterbegin",n)}))})),document.querySelectorAll(".create-button").forEach((function(n){n.addEventListener("click",(function(n){n.preventDefault();var o=e.value,r=t.findIndex((function(t){return t.id===o})),i=t[r],a=document.querySelector("#title").value,c=document.querySelector("#description").value,u=new s(a,c);u.addTodo(i,{title:a,description:c}),u.renderTodo(i)}))}))})()})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/components/common.js":
+/*!**********************************!*\
+  !*** ./src/components/common.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"populateSelect\": () => (/* binding */ populateSelect),\n/* harmony export */   \"getValue\": () => (/* binding */ getValue),\n/* harmony export */   \"setLocalStorage\": () => (/* binding */ setLocalStorage),\n/* harmony export */   \"getLocalStorage\": () => (/* binding */ getLocalStorage),\n/* harmony export */   \"storage\": () => (/* binding */ storage)\n/* harmony export */ });\nvar storage = [];\nvar selectElement = document.querySelector('select');\n\nvar populateSelect = function populateSelect() {\n  selectElement.textContent = '';\n  storage.map(function (project) {\n    var optionElement = \"<option value=\".concat(project.id, \">\").concat(project.name, \"</option>\");\n    selectElement.insertAdjacentHTML('afterbegin', optionElement);\n  });\n};\n\nvar getValue = function getValue() {\n  var value = selectElement.value;\n  return value;\n};\n\nvar setLocalStorage = function setLocalStorage() {\n  window.localStorage.setItem('todos', JSON.stringify(storage));\n};\n\nvar getLocalStorage = function getLocalStorage() {\n  var colletion = JSON.parse(window.localStorage.getItem('todos'));\n\n  if (colletion) {\n    colletion.forEach(function (el) {\n      storage.push(el);\n    });\n  }\n};\n\n\n\n//# sourceURL=webpack://ToDo-List/./src/components/common.js?");
+
+/***/ }),
+
+/***/ "./src/components/project.js":
+/*!***********************************!*\
+  !*** ./src/components/project.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./src/components/common.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar uniqid = __webpack_require__(/*! uniqid */ \"./node_modules/uniqid/index.js\");\n\nvar Project = /*#__PURE__*/function () {\n  function Project(name) {\n    _classCallCheck(this, Project);\n\n    this.name = name;\n    this.container = document.querySelector('.render-projects');\n    this.tasks = [];\n  }\n\n  _createClass(Project, [{\n    key: \"addProject\",\n    value: function addProject() {\n      _common__WEBPACK_IMPORTED_MODULE_0__.storage.push({\n        id: uniqid(),\n        name: this.name,\n        tasks: this.tasks\n      });\n      (0,_common__WEBPACK_IMPORTED_MODULE_0__.setLocalStorage)();\n    }\n  }, {\n    key: \"renderProject\",\n    value: function renderProject() {\n      this.container.textContent = '';\n      this.addProject();\n      var contPj = _common__WEBPACK_IMPORTED_MODULE_0__.storage.map(function (item) {\n        return \"<h2>\".concat(item.name, \"</h2>\\n                                       \");\n      });\n      this.container.insertAdjacentHTML('afterbegin', contPj);\n      console.log(_common__WEBPACK_IMPORTED_MODULE_0__.storage);\n    }\n  }]);\n\n  return Project;\n}();\n\n\n\n//# sourceURL=webpack://ToDo-List/./src/components/project.js?");
+
+/***/ }),
+
+/***/ "./src/components/render.js":
+/*!**********************************!*\
+  !*** ./src/components/render.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createProject\": () => (/* binding */ createProject),\n/* harmony export */   \"createTodo\": () => (/* binding */ createTodo)\n/* harmony export */ });\n/* harmony import */ var _project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project */ \"./src/components/project.js\");\n/* harmony import */ var _todos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos */ \"./src/components/todos.js\");\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common */ \"./src/components/common.js\");\n\n\n\n\nfunction createProject() {\n  var newProject = document.querySelector('#new-project');\n  newProject.addEventListener('click', function (e) {\n    e.preventDefault();\n    var nameInput = document.querySelector('.project_name').value;\n    var newProject = new _project__WEBPACK_IMPORTED_MODULE_0__.default(nameInput);\n    newProject.renderProject();\n    (0,_common__WEBPACK_IMPORTED_MODULE_2__.populateSelect)();\n  });\n}\n\nfunction createTodo() {\n  var btnTodo = document.querySelectorAll('.create-button');\n  btnTodo.forEach(function (btn) {\n    btn.addEventListener('click', function (e) {\n      e.preventDefault();\n      var projectId = (0,_common__WEBPACK_IMPORTED_MODULE_2__.getValue)();\n      var projectIndex = _common__WEBPACK_IMPORTED_MODULE_2__.storage.findIndex(function (item) {\n        return item.id === projectId;\n      });\n      var project = _common__WEBPACK_IMPORTED_MODULE_2__.storage[projectIndex];\n      var newTitle = document.querySelector('#title').value;\n      var newDescp = document.querySelector('#description').value;\n      var newTodo = new _todos__WEBPACK_IMPORTED_MODULE_1__.default(newTitle, newDescp);\n      newTodo.addTodo(project, {\n        title: newTitle,\n        description: newDescp\n      });\n      newTodo.renderTodo(project);\n    });\n  });\n}\n\n\n\n//# sourceURL=webpack://ToDo-List/./src/components/render.js?");
+
+/***/ }),
+
+/***/ "./src/components/todos.js":
+/*!*********************************!*\
+  !*** ./src/components/todos.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Todos)\n/* harmony export */ });\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./src/components/common.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar Todos = /*#__PURE__*/function () {\n  function Todos(title, description, date) {\n    _classCallCheck(this, Todos);\n\n    this.title = title;\n    this.description = description;\n    this.date = date;\n    this.todoList = document.getElementById('todo-list-container');\n  }\n\n  _createClass(Todos, [{\n    key: \"addTodo\",\n    value: function addTodo(project, task) {\n      project.tasks.push(task);\n      (0,_common__WEBPACK_IMPORTED_MODULE_0__.setLocalStorage)();\n    }\n  }, {\n    key: \"renderTodo\",\n    value: function renderTodo(project) {\n      this.todoList.textContent = '';\n      var contTodo = project.tasks.map(function (item) {\n        return \"<ul class=\\\"todoCard\\\">\\n                                                <li>\".concat(item.title, \"</li>\\n                                                <li>\").concat(item.description, \"</li>\\n                                                <li><button class=\\\"todo-delete\\\">Delete</button></li>\\n                                                <li><button class=\\\"todo-edit\\\">Edit</button></li>\\n                                                </ul>\");\n      });\n      this.todoList.insertAdjacentHTML('afterbegin', contTodo);\n      console.log(project);\n    }\n  }]);\n\n  return Todos;\n}();\n\n\n\n//# sourceURL=webpack://ToDo-List/./src/components/todos.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/render */ \"./src/components/render.js\");\n\n(0,_components_render__WEBPACK_IMPORTED_MODULE_0__.createProject)();\n(0,_components_render__WEBPACK_IMPORTED_MODULE_0__.createTodo)();\n\n//# sourceURL=webpack://ToDo-List/./src/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/uniqid/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/uniqid/index.js ***!
+  \**************************************/
+/***/ ((module) => {
+
+eval("/* \n(The MIT License)\nCopyright (c) 2014-2021 Halász Ádám <adam@aimform.com>\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n*/\n\n//  Unique Hexatridecimal ID Generator\n// ================================================\n\n//  Dependencies\n// ================================================\nvar pid = typeof process !== 'undefined' && process.pid ? process.pid.toString(36) : '' ;\nvar address = '';\nif(false){ var i, mac, networkInterfaces; } \n\n//  Exports\n// ================================================\nmodule.exports = module.exports.default = function(prefix, suffix){ return (prefix ? prefix : '') + address + pid + now().toString(36) + (suffix ? suffix : ''); }\nmodule.exports.process = function(prefix, suffix){ return (prefix ? prefix : '') + pid + now().toString(36) + (suffix ? suffix : ''); }\nmodule.exports.time    = function(prefix, suffix){ return (prefix ? prefix : '') + now().toString(36) + (suffix ? suffix : ''); }\n\n//  Helpers\n// ================================================\nfunction now(){\n    var time = Date.now();\n    var last = now.last || time;\n    return now.last = time > last ? time : last + 1;\n}\n\n\n//# sourceURL=webpack://ToDo-List/./node_modules/uniqid/index.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	
+/******/ })()
+;
