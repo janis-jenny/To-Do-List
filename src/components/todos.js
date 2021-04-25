@@ -1,17 +1,15 @@
-import { setLocalStorage } from './common';
 
 export default class Todos {
   constructor(title, description, date, priority) {
     this.title = title;
     this.description = description;
     this.date = date;
-    this.date = priority;
+    this.priority = priority;
     this.todoList = document.getElementById('todo-list-container');
   }
 
   addTodo(project, task) {
     project.tasks.push(task);
-
   }
 
   renderTodo(project) {
@@ -26,7 +24,8 @@ export default class Todos {
                                                 </ul>`);
     /* this.todoList.insertAdjacentHTML('afterbegin', contTodo);
     console.log(project) */
+    this.addTodo();
     console.log(project);
-    return contTodo
+    return contTodo;
   }
 }

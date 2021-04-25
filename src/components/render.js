@@ -11,7 +11,6 @@ function createProject() {
     const newProject = new Project(nameInput);
     newProject.renderProject();
     populateSelect();
-
   });
 }
 
@@ -22,19 +21,21 @@ function createTodo() {
       e.preventDefault();
       const projectId = getValue();
       const projectIndex = storage.findIndex(
-        (item) => item.id === projectId);
+        (item) => item.id === projectId,
+      );
       const project = storage[projectIndex];
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
       const newDate = document.querySelector('#date').value;
       const newPriority = document.querySelector('#priority-list').value;
       const newTodo = new Todos(newTitle, newDescp, newDate, newPriority);
-      newTodo.addTodo(project, { title: newTitle, description: newDescp, date: newDate, priority: newPriority});
+      newTodo.addTodo(project, {
+        title: newTitle, description: newDescp, date: newDate, priority: newPriority,
+      });
       const markup = newTodo.renderTodo(project);
-      document.getElementById('todo-list-container').insertAdjacentHTML('afterbegin', markup)
-
-    })
-  })
+      document.getElementById('todo-list-container').insertAdjacentHTML('afterbegin', markup);
+    });
+  });
 }
 
 

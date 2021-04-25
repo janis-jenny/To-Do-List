@@ -4,8 +4,7 @@ import Project from './components/project';
 
 createProject();
 createTodo();
-const firstProject = new Project('default')
+const firstProject = new Project('default');
 firstProject.renderProject();
 
 populateSelect();
-

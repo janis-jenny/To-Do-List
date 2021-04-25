@@ -1,9 +1,10 @@
 import { storage } from './common';
-var uniqid = require('uniqid');
+
+const uniqid = require('uniqid');
 
 export default class Project {
   constructor(name) {
-    this.name = name; 
+    this.name = name;
     this.container = document.querySelector('.render-projects');
     this.tasks = [];
   }
@@ -12,8 +13,8 @@ export default class Project {
     storage.push({
       id: uniqid(),
       name: this.name,
-      tasks: this.tasks
-    })
+      tasks: this.tasks,
+    });
   }
 
   renderProject() {
@@ -23,6 +24,5 @@ export default class Project {
                                        `);
     this.container.insertAdjacentHTML('afterbegin', contPj);
     console.log(storage);
-    
   }
 }

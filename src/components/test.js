@@ -1,5 +1,4 @@
 
-
 /* function showForm() {
   const showTodoForm = document.querySelector('.task-btn');
   showTodoForm.addEventListener('click', (e) => {
@@ -8,7 +7,7 @@
     todoForm.toggle();
   });
 } */
-/* 
+/*
 addProjectToForm(project) {
   if (!storage) return false
   const projectListselect = document.getElementById('project-list');

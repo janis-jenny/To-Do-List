@@ -12,7 +12,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.m?js$/,
@@ -20,9 +20,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -38,7 +38,7 @@ module.exports = {
           },
         ],
       },
-      
+
     ],
   },
 };
