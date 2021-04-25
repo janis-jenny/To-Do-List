@@ -1,4 +1,4 @@
-import { storage, setLocalStorage, getLocalStorage } from './common';
+import { storage } from './common';
 var uniqid = require('uniqid');
 
 export default class Project {
@@ -12,9 +12,8 @@ export default class Project {
     storage.push({
       id: uniqid(),
       name: this.name,
-      tasks: this.tasks,
+      tasks: this.tasks
     })
-    setLocalStorage();
   }
 
   renderProject() {

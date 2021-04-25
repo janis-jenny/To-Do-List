@@ -1,6 +1,6 @@
 import Project from './project';
 import Todos from './todos';
-import { storage, populateSelect, getValue, getLocalStorage } from './common';
+import { storage, populateSelect, getValue } from './common';
 
 
 function createProject() {
@@ -26,10 +26,13 @@ function createTodo() {
       const project = storage[projectIndex];
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
-      const newTodo = new Todos(newTitle, newDescp);
-      newTodo.addTodo(project, { title: newTitle, description: newDescp });
-      newTodo.renderTodo(project);
-      
+      const newDate = document.querySelector('#date').value;
+      const newPriority = document.querySelector('#priority-list').value;
+      const newTodo = new Todos(newTitle, newDescp, newDate, newPriority);
+      newTodo.addTodo(project, { title: newTitle, description: newDescp, date: newDate, priority: newPriority});
+      const markup = newTodo.renderTodo(project);
+      document.getElementById('todo-list-container').insertAdjacentHTML('afterbegin', markup)
+
     })
   })
 }

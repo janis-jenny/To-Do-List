@@ -1,6 +1,4 @@
-
 const storage = [];
-
 const selectElement = document.querySelector('select');
 
 const populateSelect = () => {
