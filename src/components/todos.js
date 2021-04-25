@@ -10,6 +10,7 @@ export default class Todos {
 
   addTodo(project, task) {
     project.tasks.push(task);
+    this.addTodo();
   }
 
   renderTodo(project) {
@@ -24,7 +25,6 @@ export default class Todos {
                                                 </ul>`);
     /* this.todoList.insertAdjacentHTML('afterbegin', contTodo);
     console.log(project) */
-    this.addTodo();
     console.log(project);
     return contTodo;
   }
