@@ -19,8 +19,3 @@ const todoCard = (project, container) => {
 }
 
 export { addTodo, todoCard };
-
-/* ;
-
-card.insertAdjacentHTML('afterbegin', contProject);
-  card.insertAdjacentHTML('afterend', contTodo); */

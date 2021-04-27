@@ -1,6 +1,6 @@
 import Project from './project';
 import Todos from './todos';
-import { addTodo, todoCard } from './renderCards';
+import { addTodo, todoCard } from './renderTasks';
 import { storage, populateSelect, getValue } from './common';
 
 
@@ -10,9 +10,10 @@ const createProject = () => {
     e.preventDefault();
     const nameInput = document.querySelector('.project_name').value;
     const newProject = new Project(nameInput);
-    const markup1 = newProject.renderProject();
+    newProject.renderProject();
     populateSelect();
-    document.getElementById('projects').insertAdjacentHTML('afterbegin', markup1);
+    const projectsContainer = document.getElementById('projects');
+    displayProjects(projectsContainer);
   });
 }
 
@@ -38,10 +39,33 @@ function createTodo() {
       });
       const todoContainer = document.getElementById('todo-list-container');
       todoCard(project, todoContainer);
-      newTodo.prueba;
       // newTodo.renderTodo(project, todoContainer);
     });
   });
 }
 
-export { createProject, createTodo };
+const displayProjects = (container) => {
+  console.log('AQUI');
+  console.log(storage);
+  container.innerHTML = '';
+  storage.map(item => {
+    const h2 = `<h2 data-id=${item.id} class="project-name">${item.name}</h2>`;
+
+    container.insertAdjacentHTML('afterbegin', h2);
+  });
+}
+
+const displayTasks = (index) => {
+  /* console.log('AQUI');
+  console.log(storage); */
+  // container.innerHTML = '';
+  const todoRender = document.querySelectorAll('.project-name');
+  todoRender.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      storage[index].tasks
+    });
+  });
+}
+
+export { createProject, createTodo, displayProjects, displayTasks };
