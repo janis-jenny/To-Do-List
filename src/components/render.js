@@ -14,6 +14,7 @@ const createProject = () => {
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
+    
   });
 }
 
@@ -39,6 +40,7 @@ function createTodo() {
       });
       const todoContainer = document.getElementById('todo-list-container');
       todoCard(project, todoContainer);
+      displayTasks();
       // newTodo.renderTodo(project, todoContainer);
     });
   });
@@ -52,10 +54,11 @@ const displayProjects = (container) => {
     const h2 = `<h2 data-id=${item.id} class="project-name">${item.name}</h2>`;
 
     container.insertAdjacentHTML('afterbegin', h2);
+    
   });
 }
 
-const displayTasks = (index) => {
+const displayTasks = () => {
   /* console.log('AQUI');
   console.log(storage); */
   // container.innerHTML = '';
@@ -63,7 +66,14 @@ const displayTasks = (index) => {
   todoRender.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      storage[index].tasks
+      const projectId = e.target.dataset.id;
+      const projectIndex = storage.findIndex(
+        (item) => item.id === projectId,
+      );
+      const project = storage[projectIndex];
+      console.log('HEREEE.!!!')
+      console.log(project)
+      
     });
   });
 }
