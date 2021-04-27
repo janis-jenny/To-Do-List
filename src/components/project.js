@@ -5,7 +5,7 @@ const uniqid = require('uniqid');
 export default class Project {
   constructor(name) {
     this.name = name;
-    this.container = document.querySelector('.render-projects');
+    // this.container = document.querySelector('.render-projects');
     this.tasks = [];
   }
 
@@ -15,14 +15,16 @@ export default class Project {
       name: this.name,
       tasks: this.tasks,
     });
+    console.log(storage);
   }
 
   renderProject() {
-    this.container.textContent = '';
     this.addProject();
-    const contPj = storage.map(item => `<h2>${item.name}</h2>
+    // projectCard();
+    const contPj = storage.map(item => `<h2 class="project-name">${item.name}</h2>
                                        `);
-    this.container.insertAdjacentHTML('afterbegin', contPj);
-    console.log(storage);
+    // this.container.insertAdjacentHTML('afterbegin', contPj); */
+
+    return contPj;
   }
 }

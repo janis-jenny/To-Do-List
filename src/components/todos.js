@@ -1,3 +1,4 @@
+import { todoCard } from './renderCards'
 
 export default class Todos {
   constructor(title, description, date, priority) {
@@ -5,27 +6,18 @@ export default class Todos {
     this.description = description;
     this.date = date;
     this.priority = priority;
-    this.todoList = document.getElementById('todo-list-container');
+    // this.todoList = document.getElementById('todo-list-container');
   }
 
-  addTodo(project, task) {
+  /* addTodo(project, task) {
     project.tasks.push(task);
-    this.addTodo();
+  } */
+
+  renderTodo(project, container) {
+    todoCard(project, container);
   }
 
-  renderTodo(project) {
-    this.todoList.textContent = '';
-    const contTodo = project.tasks.map(item => `<ul class="todoCard">
-                                                <li>${item.title}</li>
-                                                <li>${item.description}</li>
-                                                <li>${item.date}</li>
-                                                <li>${item.priority}</li>
-                                                <li><button class="todo-delete">Delete</button></li>
-                                                <li><button class="todo-edit">Edit</button></li>
-                                                </ul>`);
-    /* this.todoList.insertAdjacentHTML('afterbegin', contTodo);
-    console.log(project) */
-    console.log(project);
-    return contTodo;
+  prueba() {
+    console.log('pruebaa');
   }
 }
