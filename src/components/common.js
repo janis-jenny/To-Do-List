@@ -15,6 +15,8 @@ const getValue = () => {
   return value;
 };
 
+const getIndex = (id) => { storage.findIndex((project) => project.id === +id)};
+
 const setLocalStorage = () => {
   window.localStorage.setItem('todos', JSON.stringify(storage));
 };
@@ -29,5 +31,5 @@ const getLocalStorage = () => {
 };
 
 export {
-  populateSelect, getValue, setLocalStorage, getLocalStorage, storage,
+  populateSelect, getValue, setLocalStorage, getLocalStorage, getIndex, storage,
 };

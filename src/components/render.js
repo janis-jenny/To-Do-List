@@ -1,7 +1,8 @@
 import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
-import { storage, populateSelect, getValue } from './common';
+import { addProject } from './renderProjects';
+import { storage, populateSelect, getValue, getIndex } from './common';
 
 
 const createProject = () => {
@@ -10,7 +11,7 @@ const createProject = () => {
     e.preventDefault();
     const nameInput = document.querySelector('.project_name').value;
     const newProject = new Project(nameInput);
-    newProject.renderProject();
+    newProject.addProject();
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
@@ -23,9 +24,7 @@ function createTodo() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectId = getValue();
-      const projectIndex = storage.findIndex(
-        (item) => item.id === projectId,
-      );
+      const projectIndex = getIndex(projectId);
       const project = storage[projectIndex];
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
@@ -58,9 +57,7 @@ const displayTasks = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectId = e.target.dataset.id;
-      const projectIndex = storage.findIndex(
-        (item) => item.id === projectId,
-      );
+      const projectIndex = getIndex(projectId);
       const project = storage[projectIndex];
       console.log('HEREEE.!!!')
       console.log(project)

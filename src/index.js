@@ -8,5 +8,4 @@ const firstProject = new Project('default');
 firstProject.renderProject();
 const projectContainer = document.getElementById('projects');
 displayProjects(projectContainer);
-
 populateSelect();
