@@ -14,7 +14,6 @@ const createProject = () => {
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
-    
   });
 }
 
@@ -33,15 +32,12 @@ function createTodo() {
       const newDate = document.querySelector('#date').value;
       const newPriority = document.querySelector('#priority-list').value;
       const newTodo = new Todos(newTitle, newDescp, newDate, newPriority);
-      console.log('hereee');
+      console.log('hereeee');
       console.log(newTodo);
       addTodo(project, {
         title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
-      const todoContainer = document.getElementById('todo-list-container');
-      todoCard(project, todoContainer);
       displayTasks();
-      // newTodo.renderTodo(project, todoContainer);
     });
   });
 }
@@ -52,16 +48,11 @@ const displayProjects = (container) => {
   container.innerHTML = '';
   storage.map(item => {
     const h2 = `<h2 data-id=${item.id} class="project-name">${item.name}</h2>`;
-
-    container.insertAdjacentHTML('afterbegin', h2);
-    
+    container.insertAdjacentHTML('afterbegin', h2); 
   });
 }
 
 const displayTasks = () => {
-  /* console.log('AQUI');
-  console.log(storage); */
-  // container.innerHTML = '';
   const todoRender = document.querySelectorAll('.project-name');
   todoRender.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -73,7 +64,9 @@ const displayTasks = () => {
       const project = storage[projectIndex];
       console.log('HEREEE.!!!')
       console.log(project)
-      
+      const todoContainer = document.getElementById('todo-list-container');
+      todoContainer.innerHTML = '';
+      todoCard(project, todoContainer);
     });
   });
 }
