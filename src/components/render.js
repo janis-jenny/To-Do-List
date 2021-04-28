@@ -1,9 +1,7 @@
 import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
-import { addProject } from './renderProjects';
 import { storage, populateSelect, getValue, getIndex } from './common';
-
 
 const createProject = () => {
   const newProject = document.querySelector('#new-project');
@@ -11,7 +9,7 @@ const createProject = () => {
     e.preventDefault();
     const nameInput = document.querySelector('.project_name').value;
     const newProject = new Project(nameInput);
-    newProject.addProject();
+    newProject.renderProject();
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
@@ -68,4 +66,15 @@ const displayTasks = () => {
   });
 }
 
+/* const deleteProject = () => {
+  const btnDelete = document.querySelectorAll('.delete-btn');;
+  btnDelete.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const projectIndex = getIndex(e.target.dataset.id);
+      storage.splice(projectIndex, 1)
+      deleteElementFromDOM(e.target.dataset.id)
+    })
+  });
+}
+ */
 export { createProject, createTodo, displayProjects, displayTasks };

@@ -1,5 +1,6 @@
+import { storage } from './common';
 
-
+const uniqid = require('uniqid');
 
 export default class Project {
   constructor(name) {
@@ -7,7 +8,7 @@ export default class Project {
     this.tasks = [];
   }
 
-  /* addProject() {
+  addProject() {
     storage.push({
       id: uniqid(),
       name: this.name,
@@ -18,5 +19,5 @@ export default class Project {
 
   renderProject() {
     this.addProject();
-  } */
+  }
 }

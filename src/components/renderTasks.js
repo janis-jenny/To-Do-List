@@ -1,5 +1,6 @@
 const addTodo = (project, task) => {
   project.tasks.push(task);
+  console.log(project.tasks);
 }
 
 const todoCard = (project, container) => {
