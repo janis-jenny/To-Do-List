@@ -11,7 +11,7 @@ export default class Todos {
     project.tasks.push(task);
   } */
 
- /*  renderTodo(project, container) {
+  /*  renderTodo(project, container) {
     todoCard(project, container);
   } */
 }

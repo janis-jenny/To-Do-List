@@ -1,7 +1,8 @@
 const addTodo = (project, task) => {
+  console.log('AQUIIII');
+  console.log(project);
   project.tasks.push(task);
-  console.log(project.tasks);
-}
+};
 
 const todoCard = (project, container) => {
 /*   console.log('HEREEE');
@@ -15,8 +16,7 @@ const todoCard = (project, container) => {
                                               <div><button class="todo-delete">Delete</button></div>
                                               <div><button class="todo-edit">Edit</button></div>
                                               </div>`);
-  container.insertAdjacentHTML('afterbegin', contTodo);                                    
-
-}
+  container.insertAdjacentHTML('afterbegin', contTodo);
+};
 
 export { addTodo, todoCard };

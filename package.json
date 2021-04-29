@@ -32,6 +32,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "image-webpack-loader": "^7.0.1",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.9.0",

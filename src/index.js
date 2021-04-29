@@ -1,6 +1,7 @@
 import { populateSelect } from './components/common';
 import { createProject, createTodo, displayProjects } from './components/render';
 import Project from './components/project';
+import './css/stylesheet.css';
 
 createProject();
 createTodo();

@@ -15,7 +15,7 @@ const getValue = () => {
   return value;
 };
 
-const getIndex = (id) => { storage.findIndex((project) => project.id === +id)};
+const getIndex = (id) => storage.findIndex((project) => project.id === id);
 
 // const deleteElementFromDOM = (id) => document.querySelector(`#${id}`).remove();
 
