@@ -6,11 +6,10 @@ import {
 } from './common';
 
 const displayProjects = (container) => {
-  console.log('AQUI');
-  console.log(storage);
   container.innerHTML = '';
   storage.map(item => {
-    const h2 = `<h2 data-id=${item.id} class="project-name">${item.name}</h2>`;
+    const h2 = `<h2 data-id=${item.id} class="project-name">${item.name}
+                <span><button id=${item.id} class="delete-btn">Delete</button></span></h2>`;
     container.insertAdjacentHTML('afterbegin', h2);
     return h2;
   });
@@ -24,11 +23,13 @@ const displayTasks = () => {
       const projectId = e.target.dataset.id;
       const projectIndex = getIndex(projectId);
       const project = storage[projectIndex];
-      console.log('HEREEE.!!!');
-      console.log(project);
-      const todoContainer = document.getElementById('todo-list-container');
-      todoContainer.innerHTML = '';
-      todoCard(project, todoContainer);
+      const taskContainer = document.querySelector('#todo-list-container');
+      taskContainer.dataset.id = projectId;
+      taskContainer.innerHTML = '';
+      const todoWrapper = document.createElement('div');
+      todoWrapper.classList.add('todo-wrapper')
+      taskContainer.append(todoWrapper);
+      todoCard(project, todoWrapper);
     });
   });
 };
@@ -43,6 +44,7 @@ const createProject = () => {
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
+    deleteProject();
   });
 };
 
@@ -53,9 +55,6 @@ function createTodo() {
       e.preventDefault();
       const projectId = getValue();
       const projectIndex = getIndex(projectId);
-      console.log('hereeee??¿¿');
-      console.log(`projectId is ${projectId}`);
-      console.log(`projectIndex is ${projectIndex}`);
       const project = storage[projectIndex];
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
@@ -73,17 +72,20 @@ function createTodo() {
 }
 
 
-/* const deleteProject = () => {
+const deleteProject = () => {
   const btnDelete = document.querySelectorAll('.delete-btn');;
   btnDelete.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const projectIndex = getIndex(e.target.dataset.id);
-      storage.splice(projectIndex, 1)
-      deleteElementFromDOM(e.target.dataset.id)
+      e.preventDefault();
+      const projectIndex = getIndex(e.target.id);
+      storage.splice(+projectIndex, 1)
+      const taskContainer = document.querySelector('#todo-list-container');
+      const todoWrapper = document.querySelector('.todo-wrapper')
+      taskContainer.remove();
     })
   });
 }
- */
+
 export {
   createProject, createTodo, displayProjects, displayTasks,
 };

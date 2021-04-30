@@ -6,12 +6,4 @@ export default class Todos {
     this.date = date;
     this.priority = priority;
   }
-
-  /* addTodo(project, task) {
-    project.tasks.push(task);
-  } */
-
-  /*  renderTodo(project, container) {
-    todoCard(project, container);
-  } */
 }
