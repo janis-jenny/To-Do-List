@@ -78,10 +78,11 @@ const deleteProject = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectIndex = getIndex(e.target.id);
-      storage.splice(+projectIndex, 1)
-      const taskContainer = document.querySelector('#todo-list-container');
-      const todoWrapper = document.querySelector('.todo-wrapper')
-      taskContainer.remove();
+      console.log('hereeee???====');
+      console.log(storage);
+      storage.splice(+projectIndex, 1);
+      const projectsContainer = document.querySelector('.project-name');
+      projectsContainer.remove();
     })
   });
 }
