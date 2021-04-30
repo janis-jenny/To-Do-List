@@ -48,7 +48,7 @@ const createProject = () => {
   });
 };
 
-function createTodo() {
+const createTodo = () => {
   const btnTodo = document.querySelectorAll('.create-button');
   btnTodo.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -67,10 +67,10 @@ function createTodo() {
         title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
       displayTasks();
+      deleteTask();
     });
   });
 }
-
 
 const deleteProject = () => {
   const btnDelete = document.querySelectorAll('.delete-btn');;
@@ -78,7 +78,7 @@ const deleteProject = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectIndex = getIndex(e.target.id);
-      console.log('hereeee???====');
+      console.log('New Storage is:');
       console.log(storage);
       storage.splice(+projectIndex, 1);
       const projectsContainer = document.querySelector('.project-name');
@@ -86,6 +86,27 @@ const deleteProject = () => {
     })
   });
 }
+
+const deleteTask = () => {
+  const btnDelete = document.querySelectorAll('.todo-delete');;
+  btnDelete.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      btn.dataset.taskId = uniqid();
+      const taskIndex = getIndex(e.target.dataset.taskId);
+      console.log('New Tasks is:');
+      console.log(tasks);
+      tasks.splice(+taskIndex, 1);
+      const taskContainer = document.querySelector('.todoCard');
+      taskContainer.remove();
+    })
+  });
+}
+
+const deleteToDoFromProject = (project, index, projectIndex) => {
+  project.tasks.splice(index, 1);
+  storage[projectIndex].tasks.splice(index, 1);
+};
 
 export {
   createProject, createTodo, displayProjects, displayTasks,

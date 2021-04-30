@@ -17,8 +17,6 @@ const getValue = () => {
 
 const getIndex = (id) => storage.findIndex((project) => project.id === id);
 
-// const deleteElementFromDOM = (id) => document.querySelector(`#${id}`).removeChild();
-
 const setLocalStorage = () => {
   window.localStorage.setItem('todos', JSON.stringify(storage));
 };
