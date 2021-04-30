@@ -1,6 +1,7 @@
 
 export default class Todos {
-  constructor(title, description, date, priority) {
+  constructor(id, title, description, date, priority) {
+    this.id = id;
     this.title = title;
     this.description = description;
     this.date = date;

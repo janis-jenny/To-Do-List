@@ -2,8 +2,10 @@ import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
 import {
-  storage, populateSelect, getValue, getIndex,
+  storage, populateSelect, getValue, getIndex, sanitizeId,
 } from './common';
+
+const uniqid = require('uniqid');
 
 const displayProjects = (container) => {
   container.innerHTML = '';
@@ -30,6 +32,7 @@ const displayTasks = () => {
       todoWrapper.classList.add('todo-wrapper')
       taskContainer.append(todoWrapper);
       todoCard(project, todoWrapper);
+      deleteTask(project);
     });
   });
 };
@@ -56,18 +59,18 @@ const createTodo = () => {
       const projectId = getValue();
       const projectIndex = getIndex(projectId);
       const project = storage[projectIndex];
+      const id = uniqid()
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
       const newDate = document.querySelector('#date').value;
       const newPriority = document.querySelector('#priority-list').value;
-      const newTodo = new Todos(newTitle, newDescp, newDate, newPriority);
+      const newTodo = new Todos(id, newTitle, newDescp, newDate, newPriority);
       console.log('hereeee');
       console.log(newTodo);
       addTodo(project, {
-        title: newTitle, description: newDescp, date: newDate, priority: newPriority,
+        id: id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
       displayTasks();
-      deleteTask();
     });
   });
 }
@@ -87,26 +90,22 @@ const deleteProject = () => {
   });
 }
 
-const deleteTask = () => {
-  const btnDelete = document.querySelectorAll('.todo-delete');;
+const deleteTask = (projectIndex) => {
+  const btnDelete = document.querySelectorAll('.todo-delete');
   btnDelete.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      btn.dataset.taskId = uniqid();
-      const taskIndex = getIndex(e.target.dataset.taskId);
+      const taskId = e.target.id;
+      const taskIndex = (projectIndex.tasks).findIndex((task) => task.id === taskId);
       console.log('New Tasks is:');
-      console.log(tasks);
-      tasks.splice(+taskIndex, 1);
-      const taskContainer = document.querySelector('.todoCard');
-      taskContainer.remove();
-    })
+      console.log(taskId);
+      console.log(taskIndex);
+      (projectIndex.tasks).splice(+taskIndex, 1);
+      const currentTodo = document.querySelector('.todoCard');
+      currentTodo.remove();
+    });
   });
 }
-
-const deleteToDoFromProject = (project, index, projectIndex) => {
-  project.tasks.splice(index, 1);
-  storage[projectIndex].tasks.splice(index, 1);
-};
 
 export {
   createProject, createTodo, displayProjects, displayTasks,
