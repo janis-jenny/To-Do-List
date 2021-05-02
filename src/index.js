@@ -1,5 +1,7 @@
 import { populateSelect } from './components/common';
-import { createProject, createTodo, displayProjects } from './components/render';
+import {
+  createProject, createTodo, displayProjects, displayTasks,
+} from './components/render';
 import Project from './components/project';
 import './css/stylesheet.css';
 
@@ -10,3 +12,4 @@ firstProject.renderProject();
 const projectContainer = document.getElementById('projects');
 displayProjects(projectContainer);
 populateSelect();
+displayTasks();

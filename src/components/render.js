@@ -2,10 +2,44 @@ import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
 import {
-  storage, populateSelect, getValue, getIndex, sanitizeId,
+  storage, populateSelect, getValue, getIndex,
 } from './common';
 
 const uniqid = require('uniqid');
+
+const deleteProject = () => {
+  const btnDelete = document.querySelectorAll('.delete-btn');
+  btnDelete.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectIndex = getIndex(e.target.id);
+      console.log('New Storage is:');
+      console.log(storage);
+      storage.splice(+projectIndex, 1);
+      const projectsContainer = document.querySelector('.project-name');
+      const todoWrapper = document.querySelector('.todo-wrapper');
+      projectsContainer.remove();
+      todoWrapper.remove();
+    });
+  });
+};
+
+const deleteTask = (projectIndex) => {
+  const btnDelete = document.querySelectorAll('.todo-delete');
+  btnDelete.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const taskId = e.target.id;
+      const taskIndex = (projectIndex.tasks).findIndex((task) => task.id === taskId);
+      console.log('New Tasks is:');
+      console.log(taskId);
+      console.log(taskIndex);
+      (projectIndex.tasks).splice(+taskIndex, 1);
+      const currentTodo = document.querySelector('.todoCard');
+      currentTodo.remove();
+    });
+  });
+};
 
 const displayProjects = (container) => {
   container.innerHTML = '';
@@ -15,6 +49,7 @@ const displayProjects = (container) => {
     container.insertAdjacentHTML('afterbegin', h2);
     return h2;
   });
+  deleteProject();
 };
 
 const displayTasks = () => {
@@ -29,7 +64,7 @@ const displayTasks = () => {
       taskContainer.dataset.id = projectId;
       taskContainer.innerHTML = '';
       const todoWrapper = document.createElement('div');
-      todoWrapper.classList.add('todo-wrapper')
+      todoWrapper.classList.add('todo-wrapper');
       taskContainer.append(todoWrapper);
       todoCard(project, todoWrapper);
       deleteTask(project);
@@ -47,7 +82,6 @@ const createProject = () => {
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
-    deleteProject();
   });
 };
 
@@ -59,7 +93,7 @@ const createTodo = () => {
       const projectId = getValue();
       const projectIndex = getIndex(projectId);
       const project = storage[projectIndex];
-      const id = uniqid()
+      const id = uniqid();
       const newTitle = document.querySelector('#title').value;
       const newDescp = document.querySelector('#description').value;
       const newDate = document.querySelector('#date').value;
@@ -68,44 +102,12 @@ const createTodo = () => {
       console.log('hereeee');
       console.log(newTodo);
       addTodo(project, {
-        id: id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
+        id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
       displayTasks();
     });
   });
-}
-
-const deleteProject = () => {
-  const btnDelete = document.querySelectorAll('.delete-btn');;
-  btnDelete.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const projectIndex = getIndex(e.target.id);
-      console.log('New Storage is:');
-      console.log(storage);
-      storage.splice(+projectIndex, 1);
-      const projectsContainer = document.querySelector('.project-name');
-      projectsContainer.remove();
-    })
-  });
-}
-
-const deleteTask = (projectIndex) => {
-  const btnDelete = document.querySelectorAll('.todo-delete');
-  btnDelete.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const taskId = e.target.id;
-      const taskIndex = (projectIndex.tasks).findIndex((task) => task.id === taskId);
-      console.log('New Tasks is:');
-      console.log(taskId);
-      console.log(taskIndex);
-      (projectIndex.tasks).splice(+taskIndex, 1);
-      const currentTodo = document.querySelector('.todoCard');
-      currentTodo.remove();
-    });
-  });
-}
+};
 
 export {
   createProject, createTodo, displayProjects, displayTasks,
