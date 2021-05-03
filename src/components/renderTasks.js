@@ -5,7 +5,6 @@ const addTodo = (project, task) => {
 };
 
 const todoCard = (project, container) => {
-  console.log(container);
   const contTodo = project.tasks.map(item => `<div class="todoCard" id="container-${item.id}">
                                               <h5>${item.title}</h5>
                                               <p>${item.description}</p>

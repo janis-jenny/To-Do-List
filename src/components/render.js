@@ -2,7 +2,7 @@ import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
 import {
-  storage, populateSelect, getValue, getIndex,
+  storage, populateSelect, getValue, getIndex, hideTodoForm, displayTodoForm, cancelButton
 } from './common';
 
 const uniqid = require('uniqid');
@@ -82,6 +82,8 @@ const createProject = () => {
     populateSelect();
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
+    const projectForm = document.querySelector('.project-form');
+    hideTodoForm(projectForm);
   });
 };
 
@@ -105,10 +107,32 @@ const createTodo = () => {
         id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
       displayTasks();
+      const todoForm = document.querySelector('.todos-form-container');
+      hideTodoForm(todoForm);
     });
   });
 };
 
+const showTaskForm = () => {
+  const todoForm = document.querySelector('.todos-form-container');
+  const addTask = document.querySelector('.add-task-btn');
+  addTask.addEventListener('click', e => {
+    e.preventDefault();
+    displayTodoForm(todoForm);
+  });
+  cancelButton(todoForm);
+}
+
+const showProjectForm = () => {
+  const projectForm = document.querySelector('.project-form');
+  const addProject = document.querySelector('#create-project');
+  addProject.addEventListener('click', e => {
+    e.preventDefault();
+    displayTodoForm(projectForm);
+  })
+  cancelButton(projectForm);
+}
+
 export {
-  createProject, createTodo, displayProjects, displayTasks,
+  createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm
 };
