@@ -2,7 +2,7 @@ import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
 import {
-  storage, populateSelect, getValue, getIndex, hideTodoForm, displayTodoForm, cancelButton
+  storage, populateSelect, getValue, getIndex, hideTodoForm, displayTodoForm, cancelButton,
 } from './common';
 
 const uniqid = require('uniqid');
@@ -121,7 +121,7 @@ const showTaskForm = () => {
     displayTodoForm(todoForm);
   });
   cancelButton(todoForm);
-}
+};
 
 const showProjectForm = () => {
   const projectForm = document.querySelector('.project-form');
@@ -129,10 +129,10 @@ const showProjectForm = () => {
   addProject.addEventListener('click', e => {
     e.preventDefault();
     displayTodoForm(projectForm);
-  })
+  });
   cancelButton(projectForm);
-}
+};
 
 export {
-  createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm
+  createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm,
 };
