@@ -67,7 +67,10 @@ const displayTasks = () => {
       todoWrapper.classList.add('todo-wrapper');
       taskContainer.append(todoWrapper);
       todoCard(project, todoWrapper);
+      const todoForm = document.querySelector('.todos-form-container');
+      cancelButton(todoForm); 
       deleteTask(project);
+       
     });
   });
 };
@@ -83,7 +86,9 @@ const createProject = () => {
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
     const projectForm = document.querySelector('.project-form');
+  
     hideTodoForm(projectForm);
+    
   });
 };
 
@@ -120,7 +125,7 @@ const showTaskForm = () => {
     e.preventDefault();
     displayTodoForm(todoForm);
   });
-  cancelButton(todoForm);
+  cancelButton(todoForm); 
 };
 
 const showProjectForm = () => {
@@ -129,8 +134,9 @@ const showProjectForm = () => {
   addProject.addEventListener('click', e => {
     e.preventDefault();
     displayTodoForm(projectForm);
+    
   });
-  cancelButton(projectForm);
+  cancelButton(projectForm);  
 };
 
 export {

@@ -22,12 +22,14 @@ const displayTodoForm = (element) => element.classList.remove('d-none');
 const hideTodoForm = (element) => element.classList.add('d-none');
 
 const cancelButton = (element) => {
-  const cancel = document.querySelector('.cancel-button');
-  cancel.addEventListener('click', e => {
+  const cancel = document.querySelectorAll('.cancel-button');
+  cancel.forEach(btn => {
+    btn.addEventListener('click', (e) => {
     e.preventDefault();
-    element.classList.toggle('d-none');
+    element.classList.add('d-none');
+    });
   });
-};
+}
 
 export {
   populateSelect, getValue, getIndex, storage, hideTodoForm, displayTodoForm, cancelButton,
