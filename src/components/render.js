@@ -6,7 +6,6 @@ import {
 } from './common';
 import { setLocalStorage, getLocalStorage } from './localStorage';
 
-
 const uniqid = require('uniqid');
 
 const deleteProject = () => {
@@ -141,9 +140,8 @@ const showProjectForm = () => {
 
 /* window.addEventListener('DOMContentLoaded', () => {
   getLocalStorage();
+}); */
 
-});
- */
 export {
   createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm,
 };

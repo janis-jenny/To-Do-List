@@ -1,16 +1,15 @@
-import { populateSelect } from './components/common';
+import { populateSelect, storage } from './components/common';
 import {
   createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm,
 } from './components/render';
-import Project from './components/project';
 import './css/stylesheet.css';
-import { getLocalStorage } from './components/localStorage.js';
+import Project from './components/project';
+import { getLocalStorage } from './components/localStorage';
 
+const projectContainer = document.getElementById('projects');
 createProject();
 createTodo();
-const firstProject = new Project('default');
-firstProject.renderProject(); 
-const projectContainer = document.getElementById('projects');
+ 
 displayProjects(projectContainer);
 populateSelect();
 displayTasks();
@@ -18,7 +17,13 @@ showTaskForm();
 showProjectForm();
 
 window.addEventListener('DOMContentLoaded', () => { // solo se ejecuta una vez
-  getLocalStorage();
   projectContainer.innerText = '';
-  displayProjects(projectContainer);
+  getLocalStorage();
+  if (storage.length == 0) {
+    const firstProject = new Project('default');
+    firstProject.renderProject();
+    displayProjects(projectContainer);
+  } else {
+    displayProjects(projectContainer);
+  }
 });

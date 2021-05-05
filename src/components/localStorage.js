@@ -1,20 +1,8 @@
 import { storage } from './common';
 
-const uniqid = require('uniqid');
 
 const setLocalStorage = () => {
-    if (storage.length == 0) {
-      storage.push({
-      id: uniqid(),
-      name: 'default',
-      tasks: [],
-      })
-      window.localStorage.setItem('todos', JSON.stringify(storage));
-    }
-    else {
-      window.localStorage.setItem('todos', JSON.stringify(storage));
-    }
-    
+  window.localStorage.setItem('todos', JSON.stringify(storage));
 };
 
 const getLocalStorage = () => {
