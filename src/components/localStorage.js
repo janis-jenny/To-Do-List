@@ -7,8 +7,8 @@ const setLocalStorage = () => {
 
 const getLocalStorage = () => {
   const colletion = JSON.parse(window.localStorage.getItem('todos'));
-  console.log('local stprage')
-  console.log(colletion)
+  console.log('local stprage');
+  console.log(colletion);
   if (colletion) {
     colletion.forEach(el => {
       storage.push(el);

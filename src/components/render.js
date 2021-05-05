@@ -4,7 +4,7 @@ import { addTodo, todoCard } from './renderTasks';
 import {
   storage, populateSelect, getValue, getIndex, hideTodoForm, displayTodoForm, cancelButton,
 } from './common';
-import { setLocalStorage, getLocalStorage } from './localStorage';
+import { setLocalStorage } from './localStorage';
 
 const uniqid = require('uniqid');
 

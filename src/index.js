@@ -9,7 +9,7 @@ import { getLocalStorage } from './components/localStorage';
 const projectContainer = document.getElementById('projects');
 createProject();
 createTodo();
- 
+
 displayProjects(projectContainer);
 populateSelect();
 displayTasks();
@@ -19,7 +19,7 @@ showProjectForm();
 window.addEventListener('DOMContentLoaded', () => { // solo se ejecuta una vez
   projectContainer.innerText = '';
   getLocalStorage();
-  if (storage.length == 0) {
+  if (storage.length === 0) {
     const firstProject = new Project('default');
     firstProject.renderProject();
     displayProjects(projectContainer);
