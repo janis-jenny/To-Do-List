@@ -1,7 +1,10 @@
+import { setLocalStorage } from './localStorage';
+
 const addTodo = (project, task) => {
-  console.log('AQUIIII');
-  console.log(project);
+/*   console.log('AQUIIII');
+  console.log(project); */
   project.tasks.push(task);
+  setLocalStorage();
 };
 
 const todoCard = (project, container) => {

@@ -25,11 +25,11 @@ const cancelButton = (element) => {
   const cancel = document.querySelectorAll('.cancel-button');
   cancel.forEach(btn => {
     btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    element.classList.add('d-none');
+      e.preventDefault();
+      element.classList.add('d-none');
     });
   });
-}
+};
 
 export {
   populateSelect, getValue, getIndex, storage, hideTodoForm, displayTodoForm, cancelButton,

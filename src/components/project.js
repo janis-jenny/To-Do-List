@@ -1,4 +1,5 @@
 import { storage } from './common';
+import { setLocalStorage } from './localStorage';
 
 const uniqid = require('uniqid');
 
@@ -14,7 +15,7 @@ export default class Project {
       name: this.name,
       tasks: this.tasks,
     });
-    console.log(storage);
+    setLocalStorage();
   }
 
   renderProject() {

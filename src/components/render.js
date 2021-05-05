@@ -4,6 +4,8 @@ import { addTodo, todoCard } from './renderTasks';
 import {
   storage, populateSelect, getValue, getIndex, hideTodoForm, displayTodoForm, cancelButton,
 } from './common';
+import { setLocalStorage, getLocalStorage } from './localStorage';
+
 
 const uniqid = require('uniqid');
 
@@ -16,6 +18,7 @@ const deleteProject = () => {
       console.log('New Storage is:');
       console.log(storage);
       storage.splice(+projectIndex, 1);
+      setLocalStorage();
       const projectsContainer = document.querySelector('.project-name');
       const todoWrapper = document.querySelector('.todo-wrapper');
       projectsContainer.remove();
@@ -35,6 +38,7 @@ const deleteTask = (projectIndex) => {
       console.log(taskId);
       console.log(taskIndex);
       (projectIndex.tasks).splice(+taskIndex, 1);
+      setLocalStorage();
       const currentTodo = document.querySelector('.todoCard');
       currentTodo.remove();
     });
@@ -68,9 +72,8 @@ const displayTasks = () => {
       taskContainer.append(todoWrapper);
       todoCard(project, todoWrapper);
       const todoForm = document.querySelector('.todos-form-container');
-      cancelButton(todoForm); 
+      cancelButton(todoForm);
       deleteTask(project);
-       
     });
   });
 };
@@ -86,9 +89,7 @@ const createProject = () => {
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
     const projectForm = document.querySelector('.project-form');
-  
     hideTodoForm(projectForm);
-    
   });
 };
 
@@ -125,7 +126,7 @@ const showTaskForm = () => {
     e.preventDefault();
     displayTodoForm(todoForm);
   });
-  cancelButton(todoForm); 
+  cancelButton(todoForm);
 };
 
 const showProjectForm = () => {
@@ -134,11 +135,15 @@ const showProjectForm = () => {
   addProject.addEventListener('click', e => {
     e.preventDefault();
     displayTodoForm(projectForm);
-    
   });
-  cancelButton(projectForm);  
+  cancelButton(projectForm);
 };
 
+/* window.addEventListener('DOMContentLoaded', () => {
+  getLocalStorage();
+
+});
+ */
 export {
   createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm,
 };
