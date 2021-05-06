@@ -14,8 +14,6 @@ const deleteProject = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectIndex = getIndex(e.target.id);
-      console.log('New Storage is:');
-      console.log(storage);
       storage.splice(+projectIndex, 1);
       setLocalStorage();
       const projectsContainer = document.querySelector('.project-name');
@@ -33,9 +31,6 @@ const deleteTask = (projectIndex) => {
       e.preventDefault();
       const taskId = e.target.id;
       const taskIndex = (projectIndex.tasks).findIndex((task) => task.id === taskId);
-      console.log('New Tasks is:');
-      console.log(taskId);
-      console.log(taskIndex);
       (projectIndex.tasks).splice(+taskIndex, 1);
       setLocalStorage();
       const currentTodo = document.querySelector('.todoCard');
@@ -63,16 +58,19 @@ const displayTasks = () => {
       const projectId = e.target.dataset.id;
       const projectIndex = getIndex(projectId);
       const project = storage[projectIndex];
-      const taskContainer = document.querySelector('#todo-list-container');
-      taskContainer.dataset.id = projectId;
-      taskContainer.innerHTML = '';
-      const todoWrapper = document.createElement('div');
-      todoWrapper.classList.add('todo-wrapper');
-      taskContainer.append(todoWrapper);
-      todoCard(project, todoWrapper);
-      const todoForm = document.querySelector('.todos-form-container');
-      cancelButton(todoForm);
-      deleteTask(project);
+      console.log(projectIndex);
+      if (projectIndex >= 0) {
+        const taskContainer = document.querySelector('#todo-list-container');
+        taskContainer.dataset.id = projectId;
+        taskContainer.innerHTML = '';
+        const todoWrapper = document.createElement('div');
+        todoWrapper.classList.add('todo-wrapper');
+        taskContainer.append(todoWrapper);
+        todoCard(project, todoWrapper);
+        const todoForm = document.querySelector('.todos-form-container');
+        cancelButton(todoForm);
+        deleteTask(project);
+      }
     });
   });
 };
@@ -106,8 +104,6 @@ const createTodo = () => {
       const newDate = document.querySelector('#date').value;
       const newPriority = document.querySelector('#priority-list').value;
       const newTodo = new Todos(id, newTitle, newDescp, newDate, newPriority);
-      console.log('hereeee');
-      console.log(newTodo);
       addTodo(project, {
         id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
@@ -137,10 +133,6 @@ const showProjectForm = () => {
   });
   cancelButton(projectForm);
 };
-
-/* window.addEventListener('DOMContentLoaded', () => {
-  getLocalStorage();
-}); */
 
 export {
   createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm,

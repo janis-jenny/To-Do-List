@@ -1,8 +1,6 @@
 import { setLocalStorage } from './localStorage';
 
 const addTodo = (project, task) => {
-/*   console.log('AQUIIII');
-  console.log(project); */
   project.tasks.push(task);
   setLocalStorage();
 };
