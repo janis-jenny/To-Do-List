@@ -2,7 +2,7 @@ import Project from './project';
 import Todos from './todos';
 import { addTodo, todoCard } from './renderTasks';
 import {
-  storage, populateSelect, getValue, getIndex, hideTodoForm, displayTodoForm, cancelButton,
+  storage, populateSelect, getValue, getIndex,
 } from './common';
 import { setLocalStorage } from './localStorage';
 
@@ -67,8 +67,6 @@ const displayTasks = () => {
         todoWrapper.classList.add('todo-wrapper');
         taskContainer.append(todoWrapper);
         todoCard(project, todoWrapper);
-        const todoForm = document.querySelector('.todos-form-container');
-        cancelButton(todoForm);
         deleteTask(project);
       }
     });
@@ -82,11 +80,13 @@ const createProject = () => {
     const nameInput = document.querySelector('.project_name').value;
     const newProject = new Project(nameInput);
     newProject.renderProject();
+    // eslint-disable-next-line no-undef
     $('#projectModal').modal('hide');
     populateSelect();
+    // eslint-disable-next-line no-undef
     $('#projectModal').on('hidden.bs.modal', function reset() {
       // eslint-disable-next-line no-undef
-    $(this).find('form').trigger('reset');
+      $(this).find('form').trigger('reset');
     });
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
@@ -106,39 +106,22 @@ const createTodo = () => {
       const newDescp = document.querySelector('#description').value;
       const newDate = document.querySelector('#date').value;
       const newPriority = document.querySelector('#priority-list').value;
+      // eslint-disable-next-line no-unused-vars
       const newTodo = new Todos(id, newTitle, newDescp, newDate, newPriority);
       addTodo(project, {
         id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
+      // eslint-disable-next-line no-undef
       $('#exampleModal').modal('hide');
       displayTasks();
+      // eslint-disable-next-line no-undef
       $('#exampleModal').on('hidden.bs.modal', function reset() {
         // eslint-disable-next-line no-undef
-      $(this).find('form').trigger('reset');
+        $(this).find('form').trigger('reset');
       });
     });
   });
 };
-
-/* const showTaskForm = () => {
-  const todoForm = document.querySelector('.todos-form-container');
-  const addTask = document.querySelector('.add-task-btn');
-  addTask.addEventListener('click', e => {
-    e.preventDefault();
-    displayTodoForm(todoForm);
-  });
-  cancelButton(todoForm);
-}; */
-/* 
-const showProjectForm = () => {
-  const projectForm = document.querySelector('.project-form');
-  const addProject = document.querySelector('#create-project');
-  addProject.addEventListener('click', e => {
-    e.preventDefault();
-    displayTodoForm(projectForm);
-  });
-  cancelButton(projectForm);
-}; */
 
 export {
   createProject, createTodo, displayProjects, displayTasks,

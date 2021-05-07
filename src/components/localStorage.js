@@ -1,6 +1,5 @@
 import { storage } from './common';
 
-
 const setLocalStorage = () => {
   window.localStorage.setItem('todos', JSON.stringify(storage));
 };
