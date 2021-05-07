@@ -9,20 +9,20 @@
 <script defer src="main.js"></script></head>
 <body>
   <div class="content">
-    <main>
-      <div class="projects-container ">
-        <h2 class="projects-title">PROJECTS</h2>
-        <div class="d-flex flex-column" id="projects">
+    <div class="projects-container container">
+      <h2 class="projects-title my-2 text-center">TO-DO-LIST</h2>
+      <div class="row">
+        <aside class="col-4">
+          <div class="d-flex flex-column" id="projects">
         
+          </div>
+          <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Task</button>
+          <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#projectModal">Add Project</button>
+        </aside>
+        <div class="col-8" id="todo-list-container">
         </div>
-      
-        <div id="todo-list-container">
-        </div>
-        
       </div>
-      <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Todo</button>
-      <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#projectModal">Add Project</button>
-    </main>
+    </div>
     
     <div id="projectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <form action="/project" class="modal-dialog project-form" role="document">

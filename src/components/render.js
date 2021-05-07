@@ -42,10 +42,10 @@ const deleteTask = (projectIndex) => {
 const displayProjects = (container) => {
   container.innerHTML = '';
   storage.map(item => {
-    const h2 = `<h2 data-id=${item.id} class="project-name">${item.name}
-                <span><button id=${item.id} class="delete-btn">Delete</button></span></h2>`;
+    const list = `<ul><li data-id=${item.id} class="project-name">${item.name}
+                <span><button id=${item.id} class="delete-btn">Delete</button></span></li></ul>`;
     container.insertAdjacentHTML('afterbegin', h2);
-    return h2;
+    return list;
   });
   deleteProject();
 };
