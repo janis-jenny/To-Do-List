@@ -32,7 +32,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 id="exampleModalLabel" class="modal-title">Add a new project</h4>
-            <button type="button"  data-dismiss="modal" class="btn btn-secondary btn-sm" aria-label="Close">
+            <button type="button"  data-dismiss="modal" class="btn btn-secondary btn-sm cancel-btn" aria-label="Close">
               <span  aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -51,20 +51,18 @@
       <form class="modal-dialog " role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 id="exampleModalLabel" class="modal-title">Create a Todo
+            <h4 id="exampleModalLabel" class="modal-title">Create a Task
             </h4>
-            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="btn btn-secondary btn-sm cancel-btn" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
         
-          <div class="modal-body project-section form-section">
-            <label for="project">Select or create a project</label>
+          <div class="modal-body form-section">
+            <label for="project">Select a project</label>
             <select id="project-list" name="project">
               <option value="default" id="default"></option>
-              
             </select>
-            <button type="button" id="create-project">New project</button>
           
             <div class="form-section">
               <label for="title">Title</label>
@@ -89,9 +87,9 @@
               </select>
             </div>
           </div>
-          <div class="modal-footer form-section">
-            <button type="button" class="create-button btn btn-primary">Create</button>
-            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">Cancel</button>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill">Create</button>
+            <button type="button" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </form>

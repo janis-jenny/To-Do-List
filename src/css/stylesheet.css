@@ -66,3 +66,31 @@
 .modal-title {
   font-size: 1rem;
 }
+
+.cancel-btn {
+  border-radius: 6px;
+}
+
+.modal-body {
+  padding: 1rem 4rem;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: grey;
+}
+
+.form-section > label,
+.form-section > input,
+.form-section > textarea {
+  color: rgb(49, 49, 49);
+  margin: 0.3rem 0;
+}
+
+#project-list > option, 
+#priority-list > option,
+#default {
+  color: rgb(49, 49, 49);
+}
