@@ -15,10 +15,10 @@ export default class Project {
       name: this.name,
       tasks: this.tasks,
     });
-    setLocalStorage();
   }
 
   renderProject() {
     this.addProject();
+    setLocalStorage();
   }
 }

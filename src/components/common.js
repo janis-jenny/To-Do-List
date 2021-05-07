@@ -1,3 +1,5 @@
+import { setLocalStorage } from './localStorage';
+
 const storage = [];
 const selectElement = document.querySelector('select');
 
@@ -8,6 +10,7 @@ const populateSelect = () => {
     selectElement.insertAdjacentHTML('afterbegin', optionElement);
     return populate;
   });
+  setLocalStorage();
 };
 
 const getValue = () => {

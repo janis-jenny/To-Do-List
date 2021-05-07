@@ -76,17 +76,20 @@ const displayTasks = () => {
 };
 
 const createProject = () => {
-  const newProject = document.querySelector('#new-project');
+  const newProject = document.getElementById('new-project');
   newProject.addEventListener('click', (e) => {
     e.preventDefault();
     const nameInput = document.querySelector('.project_name').value;
     const newProject = new Project(nameInput);
     newProject.renderProject();
+    $('#projectModal').modal('hide');
     populateSelect();
+    $('#projectModal').on('hidden.bs.modal', function reset() {
+      // eslint-disable-next-line no-undef
+    $(this).find('form').trigger('reset');
+    });
     const projectsContainer = document.getElementById('projects');
     displayProjects(projectsContainer);
-    const projectForm = document.querySelector('.project-form');
-    hideTodoForm(projectForm);
   });
 };
 
@@ -107,14 +110,17 @@ const createTodo = () => {
       addTodo(project, {
         id, title: newTitle, description: newDescp, date: newDate, priority: newPriority,
       });
+      $('#exampleModal').modal('hide');
       displayTasks();
-      const todoForm = document.querySelector('.todos-form-container');
-      hideTodoForm(todoForm);
+      $('#exampleModal').on('hidden.bs.modal', function reset() {
+        // eslint-disable-next-line no-undef
+      $(this).find('form').trigger('reset');
+      });
     });
   });
 };
 
-const showTaskForm = () => {
+/* const showTaskForm = () => {
   const todoForm = document.querySelector('.todos-form-container');
   const addTask = document.querySelector('.add-task-btn');
   addTask.addEventListener('click', e => {
@@ -122,8 +128,8 @@ const showTaskForm = () => {
     displayTodoForm(todoForm);
   });
   cancelButton(todoForm);
-};
-
+}; */
+/* 
 const showProjectForm = () => {
   const projectForm = document.querySelector('.project-form');
   const addProject = document.querySelector('#create-project');
@@ -132,8 +138,8 @@ const showProjectForm = () => {
     displayTodoForm(projectForm);
   });
   cancelButton(projectForm);
-};
+}; */
 
 export {
-  createProject, createTodo, displayProjects, displayTasks, showTaskForm, showProjectForm,
+  createProject, createTodo, displayProjects, displayTasks,
 };

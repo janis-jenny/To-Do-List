@@ -10,7 +10,7 @@
 <body>
   <div class="content">
     <main>
-      <div class="projects-container " id="projects-container">
+      <div class="projects-container ">
         <h2 class="projects-title">PROJECTS</h2>
         <div class="d-flex flex-column" id="projects">
         
@@ -20,23 +20,30 @@
         </div>
         
       </div>
-      
-      
+      <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Todo</button>
+      <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#projectModal">Add Project</button>
     </main>
-    <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Todo</button>
-    <!-- add-task-btn <div class="project-form-container" id="project-form-container">
-      <form action="/project" class="project-form d-none">
-        <h4>Add a new project</h4>
-        <div class="project-input-container">
-          <input type="text" placeholder="Put a name for the project" class="project_name">
+    
+    <div id="projectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form action="/project" class="modal-dialog project-form" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="exampleModalLabel" class="modal-title">Add a new project</h4>
+            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" aria-describedby="project" placeholder="Put a name for the project" class="project_name">
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="new-project">Add Project</button>
+            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">Cancel</button>
+          </div>
         </div>
-        <div>
-          <button type="button" id="new-project">Add Project</button>
-          <button type="button" class="cancel-button">Cancel</button>
-        </div> todos-form-container d-none
       </form>
       
-    </div> -->
+    </div>
     <div id="exampleModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
       <form class="modal-dialog " role="document">
         <div class="modal-content">
@@ -80,8 +87,8 @@
             </div>
           </div>
           <div class="modal-footer form-section">
-            <button type="button" class="create-button">Create</button>
-            <!-- <button type="button" class="cancel-button">Cancel</button> -->
+            <button type="button" class="create-button btn btn-primary">Create</button>
+            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </form>
