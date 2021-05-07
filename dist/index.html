@@ -8,16 +8,19 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script defer src="main.js"></script></head>
 <body>
-  <div class="content">
-    <div class="projects-container container">
-      <h2 class="projects-title my-2 text-center">TO-DO-LIST</h2>
+  <div id="content">
+    <div class="container">
+      <h2 class="projects-title py-2 text-center">TO-DO-LIST</h2>
       <div class="row">
-        <aside class="col-4">
-          <div class="d-flex flex-column" id="projects">
-        
+        <aside class="col-4 projects-container">
+          <h5 class="px-3 my-0">Projects</h5>
+          <div class="d-flex flex-column">
+            <ul id="projects"></ul>
           </div>
-          <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Task</button>
-          <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#projectModal">Add Project</button>
+          <div class="add-btns">
+            <button type="button" class="btn  btn-secondary btn-sm px-3 m-1 rounded-pill" data-toggle="modal" data-target="#exampleModal">Add Task</button>
+            <button type="button" class="btn  btn-secondary btn-sm px-3 m-1 rounded-pill" data-toggle="modal" data-target="#projectModal">Add Project</button>
+          </div>
         </aside>
         <div class="col-8" id="todo-list-container">
         </div>
@@ -29,16 +32,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 id="exampleModalLabel" class="modal-title">Add a new project</h4>
-            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+            <button type="button"  data-dismiss="modal" class="btn btn-secondary btn-sm" aria-label="Close">
+              <span  aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <input type="text" aria-describedby="project" placeholder="Put a name for the project" class="project_name">
+            <input type="text" aria-describedby="project" placeholder="Put a name for the project" class="p-1">
           </div>
           <div class="modal-footer">
-            <button type="button" id="new-project">Add Project</button>
-            <button type="button" class="cancel-button" data-dismiss="modal" aria-label="Close">Cancel</button>
+            <button type="button" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" id="new-project">Add Project</button>
+            <button type="button" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </form>

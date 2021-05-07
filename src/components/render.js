@@ -42,9 +42,9 @@ const deleteTask = (projectIndex) => {
 const displayProjects = (container) => {
   container.innerHTML = '';
   storage.map(item => {
-    const list = `<ul><li data-id=${item.id} class="project-name">${item.name}
-                <span><button id=${item.id} class="delete-btn">Delete</button></span></li></ul>`;
-    container.insertAdjacentHTML('afterbegin', h2);
+    const list = `<li class="project project-name d-flex justify-content-between" data-id=${item.id}>${item.name}
+                <span id=${item.id} class="delete-btn"><img class="trash-icon" src="../assets/trash-fill.svg"></span></li>`;
+    container.insertAdjacentHTML('afterbegin', list);
     return list;
   });
   deleteProject();

@@ -3,7 +3,66 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: 'Fredoka One', sans-serif;
+  color: aliceblue;
+  list-style-type: none;
+  font-family: 'Roboto', sans-serif;
 }
 
+#content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 600px;
+  background: linear-gradient(45deg, #DB91EE 0%, #A154AA 46%, #C97DC2 100%);
+}
 
+.projects-container {
+  width: 100%;
+  height: 550px;
+  margin: 0;
+
+}
+
+.projects-name {
+  margin: 0.5rem 0 0 0.5rem;
+  font-size: 0.5rem;
+}
+
+.project {
+  border-radius: 1.2rem;
+  line-height: 1.3rem;
+  padding: 1rem;
+  width: 12rem;
+  margin: 0.6rem 0.5rem;
+  -webkit-box-shadow: -3px 24px 15px -13px rgba(21, 172, 152, 0.801);
+  -moz-box-shadow: -3px 24px 15px -13px rgba(21, 172, 152, 0.801);
+  box-shadow: -3px 24px 15px -13px rgba(21, 172, 152, 0.801);
+  background-color: #04a79e; 
+}
+
+.project:active {
+  transform: scale(1.06);
+}
+
+.delete-btn {
+  background-color: #04a79e;
+}
+
+.trash-icon {
+  width: 15px;
+  height: 20px;
+}
+
+.add-btns {
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+}
+
+.modal-header {
+  background-color: rgb(0, 124, 108);
+}
+
+.modal-title {
+  font-size: 1rem;
+}
