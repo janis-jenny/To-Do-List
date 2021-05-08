@@ -82,6 +82,10 @@
   color: grey;
 }
 
+.project_name {
+  color: rgb(49, 49, 49);
+}
+
 .form-section > label,
 .form-section > input,
 .form-section > textarea {

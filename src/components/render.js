@@ -14,12 +14,17 @@ const deleteProject = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectIndex = getIndex(e.target.id);
+      console.log(storage)
+      console.log(projectIndex)
       storage.splice(+projectIndex, 1);
+      console.log(storage)
       setLocalStorage();
       const projectsContainer = document.querySelector('.project-name');
       const todoWrapper = document.querySelector('.todo-wrapper');
       projectsContainer.remove();
-      todoWrapper.remove();
+      if (projectIndex.tasks >= 0) {
+        todoWrapper.remove();
+      }
     });
   });
 };
@@ -42,8 +47,8 @@ const deleteTask = (projectIndex) => {
 const displayProjects = (container) => {
   container.innerHTML = '';
   storage.map(item => {
-    const list = `<li class="project project-name d-flex justify-content-between" data-id=${item.id}>${item.name}
-                <span id=${item.id} class="delete-btn"><img class="trash-icon" src="../assets/trash-fill.svg"></span></li>`;
+    const list = `<h3 class="project project-name d-flex justify-content-between" data-id=${item.id}>${item.name}
+                <span id=${item.id} class="delete-btn"><img class="trash-icon" src="../assets/trash-fill.svg"></span></h3>`;
     container.insertAdjacentHTML('afterbegin', list);
     return list;
   });

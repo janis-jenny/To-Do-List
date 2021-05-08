@@ -11,8 +11,7 @@ const todoCard = (project, container) => {
                                               <p>${item.description}</p>
                                               <span>${item.date}</span>
                                               <span>${item.priority}</span>
-                                              <div><button class="todo-delete" id="${item.id}">Delete</button></div>
-                                              <div><button class="todo-edit" id="edit-${item.id}">Edit</button></div>
+                                              <div><button class="todo-delete" id="${item.id}"><img class="trash-icon" src="../assets/trash-fill.svg"></button></div>
                                               </div>`);
   container.insertAdjacentHTML('afterbegin', contTodo);
 };
