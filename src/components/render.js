@@ -1,6 +1,6 @@
 import Project from './project';
 import Todos from './todos';
-import { addTodo, todoCard } from './renderTasks';
+import { addTodo, todoCard, eventForClick } from './renderTasks';
 import {
   storage, populateSelect, getValue, getIndex,
 } from './common';
@@ -14,10 +14,10 @@ const deleteProject = () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const projectIndex = getIndex(e.target.id);
-      console.log(storage)
-      console.log(projectIndex)
+      console.log(storage);
+      console.log(projectIndex);
       storage.splice(+projectIndex, 1);
-      console.log(storage)
+      console.log(storage);
       setLocalStorage();
       const projectsContainer = document.querySelector('.project-name');
       const todoWrapper = document.querySelector('.todo-wrapper');
@@ -38,8 +38,10 @@ const deleteTask = (projectIndex) => {
       const taskIndex = (projectIndex.tasks).findIndex((task) => task.id === taskId);
       (projectIndex.tasks).splice(+taskIndex, 1);
       setLocalStorage();
-      const currentTodo = document.querySelector('.todoCard');
+      const currentTodo = document.querySelector('.todo');
+      const currentDetail = document.querySelector('.todo-details');
       currentTodo.remove();
+      currentDetail.remove();
     });
   });
 };
@@ -73,6 +75,7 @@ const displayTasks = () => {
         taskContainer.append(todoWrapper);
         todoCard(project, todoWrapper);
         deleteTask(project);
+        eventForClick(project, todoWrapper);
       }
     });
   });
