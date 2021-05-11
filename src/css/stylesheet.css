@@ -14,7 +14,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  height: 600px;
+  overflow: scroll;
   background: linear-gradient(45deg, #db91ee 0%, #a154aa 46%, #c97dc2 100%);
 }
 
@@ -26,12 +26,13 @@
 
 .projects-name {
   margin: 0.5rem 0 0 0.5rem;
-  font-size: 0.4rem;
+  
 }
 
 .project {
   border-radius: 1.2rem;
   line-height: 1.3rem;
+  font-size: 1.2rem;
   padding: 1rem;
   width: 12rem;
   margin: 0.6rem 0.5rem;
@@ -58,6 +59,7 @@
   display: flex;
   justify-items: flex-end;
   align-items: flex-end;
+  margin-top: 1rem;
 }
 
 .modal-header {
@@ -73,7 +75,7 @@
 }
 
 .modal-body {
-  padding: 0 4rem;
+  padding: 1rem 4rem;
 }
 
 .form-section {

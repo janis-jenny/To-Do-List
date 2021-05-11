@@ -83,7 +83,7 @@ const todoCard = (project, container) => {
                                                       <option value="low">Low</option>
                                                     </select>
                                                   </div>
-                                                </div>`);
+                                                </div>`).join('');
   container.insertAdjacentHTML('afterbegin', contTodo);
 };
 
