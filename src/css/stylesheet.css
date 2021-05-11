@@ -26,7 +26,6 @@
 
 .projects-name {
   margin: 0.5rem 0 0 0.5rem;
-  
 }
 
 .project {
@@ -100,7 +99,7 @@
 #priority-list > option,
 #default,
 .gray-color {
-  color: rgb(49, 49, 49);
+  color: #313131;
 }
 
 .todo {

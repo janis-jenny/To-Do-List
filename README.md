@@ -28,7 +28,7 @@
 
 ## 👩🏼‍💻 About To-Do List
 
-![screenshot]()
+![screenshot](./assets/Screenshot.jpg)
 
 All page information dynamically generated and component loading achieved using pure Javascript. You can include your to-dos on different projects, edit its details and delete the to-do if you completed it or the whole project.Persistence is with local storage.
 
