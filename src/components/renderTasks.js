@@ -44,6 +44,7 @@ const eventForFocusOut = (project, container) => {
     if (e.target.id === `edit-date-${item.id}`) {
       const dateTag = document.getElementById(`date-${item.id}`);
       dateTag.innerHTML = `Due date: ${e.target.value}`;
+      item.date = e.target.value;
       setLocalStorage();
     }
 
