@@ -27,6 +27,34 @@ const eventForClick = (project, container) => {
   return contTodo;
 };
 
+const eventForFocusOut = (project, container) => {
+  const contTodo = project.tasks.map(item => container.addEventListener('focusout', (e) => {
+    if (e.target.id === `editable-title-${item.id}`) {
+      const titleTag = document.getElementById(`title-${item.id}`);
+      titleTag.innerHTML = e.target.innerHTML;
+      item.title = e.target.innerHTML;
+      setLocalStorage();
+    }
+
+    if (e.target.id === `description-${item.id}`) {
+      item.description = e.target.innerHTML;
+      setLocalStorage();
+    }
+
+    if (e.target.id === `edit-date-${item.id}`) {
+      const dateTag = document.getElementById(`date-${item.id}`);
+      dateTag.innerHTML = `Due date: ${e.target.value}`;
+      setLocalStorage();
+    }
+
+    if (e.target.id === `priority-${item.id}`) {
+      item.priority = e.target.value;
+      setLocalStorage();
+    }
+  }));
+  return contTodo;
+}
+
 const renderCheckCard = (item) => {
   if (item.check) {
     return `<div class="checkbox-container" id="check-${item.id}">
@@ -71,7 +99,7 @@ const todoCard = (project, container) => {
                                                   </div>
                                                   <div class="edit-container">
                                                     <p class="gray-color">Description: </p>
-                                                    <p class="editable-content" id="description-${item.id}">
+                                                    <p contenteditable="true" id="description-${item.id}" class="editable-content" >
                                                         ${item.description}
                                                     </p>
                                                   </div>
@@ -87,4 +115,4 @@ const todoCard = (project, container) => {
   container.insertAdjacentHTML('afterbegin', contTodo);
 };
 
-export { addTodo, todoCard, eventForClick };
+export { addTodo, todoCard, eventForClick, eventForFocusOut };

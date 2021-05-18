@@ -1,6 +1,6 @@
 import Project from './project';
 import Todos from './todos';
-import { addTodo, todoCard, eventForClick } from './renderTasks';
+import { addTodo, todoCard, eventForClick, eventForFocusOut } from './renderTasks';
 import {
   storage, populateSelect, getValue, getIndex,
 } from './common';
@@ -76,6 +76,7 @@ const displayTasks = () => {
         todoCard(project, todoWrapper);
         deleteTask(project);
         eventForClick(project, todoWrapper);
+        eventForFocusOut(project, todoWrapper)
       }
     });
   });
