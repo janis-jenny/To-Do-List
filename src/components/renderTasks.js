@@ -54,7 +54,7 @@ const eventForFocusOut = (project, container) => {
     }
   }));
   return contTodo;
-}
+};
 
 const renderCheckCard = (item) => {
   if (item.check) {
@@ -116,4 +116,6 @@ const todoCard = (project, container) => {
   container.insertAdjacentHTML('afterbegin', contTodo);
 };
 
-export { addTodo, todoCard, eventForClick, eventForFocusOut };
+export {
+  addTodo, todoCard, eventForClick, eventForFocusOut,
+};
