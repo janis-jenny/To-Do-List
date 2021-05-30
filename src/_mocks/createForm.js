@@ -8,8 +8,8 @@ const createHtmlForm = () => {
         <div class="modal-content">
           <div class="modal-header">
             <h4 id="exampleModalLabel" class="modal-title">Add a new project</h4>
-            <button type="button"  data-dismiss="modal" class="btn btn-secondary btn-sm cancel-btn" aria-label="Close">
-              <span  aria-hidden="true">&times;</span>
+            <button type="button" data-dismiss="modal" id="cancel-btn" class="btn btn-secondary btn-sm cancel-btn" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body d-flex justify-content-center">
@@ -64,7 +64,7 @@ const createHtmlForm = () => {
             </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="create-button btn btn-secondary btn-sm px-3 m-1 rounded-pill">Create</button>
+            <button type="button" id="create-button" class="create-button btn btn-secondary btn-sm px-3 m-1 rounded-pill">Create</button>
             <button type="button" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
