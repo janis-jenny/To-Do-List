@@ -26,6 +26,15 @@ it('Should click on add task', () => {
   expect(mockCallBack.mock.calls.length).toEqual(1);
 });
 
+it('Should Validate the project title', () => {
+  createHtmlForm();
+  const mockCallBack = jest.fn();
+  const createProjectBtn = document.getElementById('new-project');
+  createProjectBtn.onclick = mockCallBack;
+  createProjectBtn.click();
+  expect(mockCallBack.mock.calls.length).toEqual(1);
+});
+
 it('Should click form buttons', () => {
   createHtmlForm();
   const mockCallBack = jest.fn();
