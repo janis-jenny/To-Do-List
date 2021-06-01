@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import Project from '../_mocks/classProject';
 
 describe('Project class', () => {

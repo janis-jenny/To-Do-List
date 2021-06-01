@@ -2,10 +2,6 @@
  * @jest-environment jsdom
  */
 
-/* import {
-  createProject, createTodo, displayProjects, displayTasks,
-} from '../components/render';
- */
 import createHtmlForm from '../_mocks/createForm';
 
 it('Should click on add project', () => {

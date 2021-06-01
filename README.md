@@ -49,6 +49,8 @@ All page information dynamically generated and component loading achieved using 
 - Webpack
 - Linters
 - VS Code
+- Jest
+
 
 
 ## 🤖 How it works
@@ -62,6 +64,12 @@ To get a local copy up and running follow these simple steps:
 5. Run `npm install` to get all the dependencies.
 6. If you want to run the development mode run: `npm run dev`.
 7. Run `npm run watch` to run webpack build in watch mode.
+
+
+## 📏 Running test
+
+1. On the terminal navigate to the project directory using `cd TODO-LIST-JS/`.
+2. Run the test with: `npm test`.
 
 
 
