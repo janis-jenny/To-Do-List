@@ -1,42 +1,15 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List</title>
-  <link rel="stylesheet" href="../src/css/stylesheet.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-  <div id="content">
-    <div class="container">
-      <h2 class="projects-title py-2 text-center">TO-DO-LIST</h2>
-      <div class="row">
-        <aside class="col-4 projects-container">
-          <h5 class="px-4 my-0">Projects</h5>
-          <div class="d-flex flex-column" id="projects">
-          </div>
-          <div class="add-btns">
-            <button type="button" id="add-task-btn" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" data-toggle="modal" data-target="#exampleModal">Add Task</button>
-            <button type="button" id="add-project-btn" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" data-toggle="modal" data-target="#projectModal">Add Project</button>
-          </div>
-        </aside>
-        <div class="col-8">
-          <h5 class="px-3 my-0 text-center">Tasks</h5>
-          <div id="todo-list-container">
-          
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div id="projectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+const createHtmlForm = () => {
+  document.body.innerHTML = `<div class="add-btns">
+    <button type="button" class="btn  btn-secondary btn-sm px-3 m-1 rounded-pill" data-toggle="modal" data-target="#exampleModal">Add Task</button>
+    <button type="button" class="btn  btn-secondary btn-sm px-3 m-1 rounded-pill" data-toggle="modal" data-target="#projectModal">Add Project</button>
+  </div>
+  <div id="projectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <form action="/project" class="modal-dialog project-form" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h4 id="exampleModalLabel" class="modal-title">Add a new project</h4>
-            <button type="button"  data-dismiss="modal" class="btn btn-secondary btn-sm cancel-btn" aria-label="Close">
-              <span  aria-hidden="true">&times;</span>
+            <button type="button" data-dismiss="modal" id="cancel-btn" class="btn btn-secondary btn-sm cancel-btn" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body d-flex justify-content-center">
@@ -91,17 +64,12 @@
             </div>
           </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="create-button btn btn-secondary btn-sm px-3 m-1 rounded-pill">Create</button>
+            <button type="button" id="create-button" class="create-button btn btn-secondary btn-sm px-3 m-1 rounded-pill">Create</button>
             <button type="button" class="btn btn-secondary btn-sm px-3 m-1 rounded-pill" data-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </div>
       </form>
-    </div>
-    
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-</body>
-</html>
+    </div>`;
+};
+
+export default createHtmlForm;
