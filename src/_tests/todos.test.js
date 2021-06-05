@@ -10,3 +10,10 @@ describe('Todos class', () => {
     expect(typeof todo).toBe('object');
   });
 });
+
+describe('test Todos class', () => {
+  test('assigns the instance variables', () => {
+    const todo = new Todos('id', 'title', 'description', 'date', 'priority', 'check=false');
+    expect(todo.title).toBe('title');
+  });
+});
