@@ -37,7 +37,7 @@ All page information dynamically generated and component loading achieved using 
 
 ## 🔴 Live Demo:
 
-[Demo](https://raw.githack.com/janis-jenny/ToDo-List/todoApp/dist/index.html)
+[Check it out](https://raw.githack.com/janis-jenny/ToDo-List/todoApp/dist/index.html)
 
 
 
@@ -57,7 +57,7 @@ All page information dynamically generated and component loading achieved using 
 
 To get a local copy up and running follow these simple steps:
 
-1. Go to the [repository page](https://github.com/janis-jenny/Restaurant-Page/).
+1. Go to the [repository page](https://github.com/janis-jenny/To-Do-List).
 2. Press the "Code" button and copy the link.
 3. Clone it using git command `git clone <you_repository_link>`.
 4. Move to the local project: cd `<Your_repository_name>`.
